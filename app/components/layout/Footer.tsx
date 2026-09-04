@@ -150,12 +150,17 @@ export default function Footer() {
   const phone2 = process.env.NEXT_PUBLIC_PHONE_2 ?? "";
   const officePhone = process.env.NEXT_PUBLIC_OFFICE_PHONE ?? "";
 
+  const developerUrl =
+    process.env.NEXT_PUBLIC_DEVELOPER_URL ?? "";
+
   const locations = [
     process.env.NEXT_PUBLIC_LOCATION_1,
     process.env.NEXT_PUBLIC_LOCATION_2,
     process.env.NEXT_PUBLIC_LOCATION_3,
     process.env.NEXT_PUBLIC_LOCATION_4,
-  ].filter(Boolean).join(" • ");
+  ]
+    .filter(Boolean)
+    .join(" • ");
 
   const officeAddress =
     process.env.NEXT_PUBLIC_OFFICE_ADDRESS ?? "";
@@ -205,9 +210,7 @@ export default function Footer() {
           rounded-full
           border-[32px]
           border-[#D99A18]/[0.04]
-
           sm:block
-
           lg:h-96
           lg:w-96
           lg:border-[42px]
@@ -249,7 +252,6 @@ export default function Footer() {
           rounded-full
           border-[30px]
           border-white/[0.025]
-
           lg:block
         "
       />
@@ -269,7 +271,6 @@ export default function Footer() {
           rounded-full
           bg-[#D99A18]/[0.015]
           blur-3xl
-
           lg:block
         "
       />
@@ -286,11 +287,8 @@ export default function Footer() {
           w-full
           max-w-[1440px]
           px-4
-
           sm:px-6
-
           lg:px-8
-
           xl:px-10
         "
       >
@@ -304,16 +302,13 @@ export default function Footer() {
             grid-cols-1
             gap-7
             py-7
-
             sm:grid-cols-2
             sm:gap-x-8
             sm:gap-y-8
             sm:py-8
-
             lg:grid-cols-[1.3fr_0.8fr_1fr_1fr]
             lg:gap-8
             lg:py-10
-
             xl:gap-12
           "
         >
@@ -330,9 +325,7 @@ export default function Footer() {
             variants={fadeLeftVariants}
             className="
               min-w-0
-
               sm:col-span-2
-
               lg:col-span-1
             "
           >
@@ -357,16 +350,14 @@ export default function Footer() {
                   transition-transform
                   duration-300
                   group-hover:scale-105
-
                   sm:h-16
                   sm:w-16
-
                   lg:h-20
                   lg:w-20
                 "
               >
                 <img
-                  src={mediaUrl("/images/logo/logo.png")}
+                  src={mediaUrl("images/logo/logo.png")}
                   alt="Baiya Tours & Travels"
                   className="
                     h-full
@@ -383,7 +374,6 @@ export default function Footer() {
                     font-extrabold
                     tracking-[0.07em]
                     text-white
-
                     sm:text-[20px]
                   "
                 >
@@ -397,7 +387,6 @@ export default function Footer() {
                     font-bold
                     tracking-[0.18em]
                     text-[#D99A18]
-
                     sm:text-[8px]
                   "
                 >
@@ -413,7 +402,6 @@ export default function Footer() {
                 text-[10px]
                 leading-[1.65]
                 text-white/100
-
                 sm:mt-3.5
                 sm:text-[11px]
                 sm:leading-5
@@ -507,9 +495,7 @@ export default function Footer() {
                 uppercase
                 tracking-[0.18em]
                 text-[#F0C45C]
-
                 sm:text-[10px]
-
                 lg:text-xs
               "
             >
@@ -529,10 +515,8 @@ export default function Footer() {
                 grid-cols-2
                 gap-x-4
                 gap-y-1.5
-
                 sm:mt-4
                 sm:gap-y-2
-
                 lg:grid-cols-1
                 lg:gap-y-2
               "
@@ -560,9 +544,7 @@ export default function Footer() {
                       transition-colors
                       duration-300
                       hover:text-[#D99A18]
-
                       sm:text-[11px]
-
                       lg:text-xs
                     "
                   >
@@ -578,7 +560,6 @@ export default function Footer() {
                         group-hover:translate-x-0.5
                         group-hover:-translate-y-0.5
                         group-hover:opacity-100
-
                         sm:block
                       "
                     />
@@ -608,9 +589,7 @@ export default function Footer() {
                 uppercase
                 tracking-[0.18em]
                 text-[#F0C45C]
-
                 sm:text-[10px]
-
                 lg:text-xs
               "
             >
@@ -629,7 +608,6 @@ export default function Footer() {
                 grid
                 grid-cols-1
                 gap-y-1.5
-
                 sm:mt-4
                 sm:gap-y-2
               "
@@ -656,9 +634,7 @@ export default function Footer() {
                       transition-colors
                       duration-300
                       hover:text-[#D99A18]
-
                       sm:text-[11px]
-
                       lg:text-xs
                     "
                   >
@@ -703,9 +679,7 @@ export default function Footer() {
                 uppercase
                 tracking-[0.18em]
                 text-[#F0C45C]
-
                 sm:text-[10px]
-
                 lg:text-xs
               "
             >
@@ -716,10 +690,8 @@ export default function Footer() {
               className="
                 mt-3
                 space-y-2.5
-
                 sm:mt-4
                 sm:space-y-3
-
                 lg:space-y-3.5
               "
             >
@@ -761,7 +733,6 @@ export default function Footer() {
                       uppercase
                       tracking-wider
                       text-white/100
-
                       sm:text-[8px]
                     "
                   >
@@ -777,9 +748,7 @@ export default function Footer() {
                       transition-colors
                       duration-300
                       group-hover:text-[#D99A18]
-
                       sm:text-[11px]
-
                       lg:text-xs
                     "
                   >
@@ -843,7 +812,6 @@ export default function Footer() {
                       uppercase
                       tracking-wider
                       text-white/100
-
                       sm:text-[8px]
                     "
                   >
@@ -860,9 +828,7 @@ export default function Footer() {
                       transition-colors
                       duration-300
                       group-hover:text-[#D99A18]
-
                       sm:text-[11px]
-
                       lg:text-xs
                     "
                   >
@@ -903,7 +869,6 @@ export default function Footer() {
                       uppercase
                       tracking-wider
                       text-white/100
-
                       sm:text-[8px]
                     "
                   >
@@ -916,9 +881,7 @@ export default function Footer() {
                       text-[10.5px]
                       font-semibold
                       text-white/65
-
                       sm:text-[11px]
-
                       lg:text-xs
                     "
                   >
@@ -974,7 +937,6 @@ export default function Footer() {
                       uppercase
                       tracking-wider
                       text-white/100
-
                       sm:text-[8px]
                     "
                   >
@@ -988,9 +950,7 @@ export default function Footer() {
                       font-semibold
                       leading-4
                       text-white/65
-
                       sm:text-[11px]
-
                       lg:text-xs
                     "
                   >
@@ -1020,7 +980,6 @@ export default function Footer() {
             border-t
             border-white/[0.08]
             py-3.5
-
             sm:flex-row
             sm:items-center
             sm:justify-between
@@ -1034,7 +993,6 @@ export default function Footer() {
               text-[8.5px]
               leading-4
               text-white/25
-
               sm:text-[10px]
             "
           >
@@ -1045,9 +1003,13 @@ export default function Footer() {
           {/* Developer */}
 
           <a
-            href="https://YOUR-ORANGE-MEGA-SOFTWARE-WEBSITE.com"
-            target="_blank"
-            rel="noopener noreferrer"
+            href={developerUrl || "#"}
+            target={developerUrl ? "_blank" : undefined}
+            rel={
+              developerUrl
+                ? "noopener noreferrer"
+                : undefined
+            }
             className="
               group
               inline-flex
@@ -1060,7 +1022,6 @@ export default function Footer() {
               transition-colors
               duration-300
               hover:text-[#D99A18]
-
               sm:text-[10px]
             "
           >
