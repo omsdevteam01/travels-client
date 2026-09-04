@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { mediaUrl } from "@/lib/media";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import {
   ArrowRight,
@@ -16,7 +17,7 @@ const tours = [
     subtitle: "Nature & Coffee",
     description:
       "Explore lush coffee plantations, waterfalls, misty hills and peaceful countryside in Coorg.",
-    image: "/images/tours/coorg.png",
+    image: mediaUrl("images/tours/coorg.png"),
     duration: "2–3 Days",
     href: "/tours/coorg-nature-tour",
   },
@@ -25,7 +26,7 @@ const tours = [
     subtitle: "Tea Hills & Nature",
     description:
       "Enjoy beautiful tea gardens, valleys, waterfalls and cool mountain views in Munnar.",
-    image: "/images/tours/munnar.png",
+    image: mediaUrl("images/tours/munnar.png"),
     duration: "2–3 Days",
     href: "/tours/munnar-thekkady-tour",
   },
@@ -34,7 +35,7 @@ const tours = [
     subtitle: "Backwaters & Relaxation",
     description:
       "Cruise through serene backwaters, palm-lined canals and peaceful village landscapes.",
-    image: "/images/tours/alleppey.png",
+    image: mediaUrl("/images/tours/alleppey.png"),
     duration: "2–3 Days",
     href: "/tours/alleppey-houseboat-tour",
   },

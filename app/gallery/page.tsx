@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { mediaUrl } from "@/lib/media";
 import {
   ArrowRight,
   ChevronLeft,
@@ -21,73 +22,73 @@ const galleryItems: GalleryItem[] = [
     id: 1,
     title: "South India Tours",
     category: "Tours",
-    image: "/images/gallery/munnar.png",
+    image: mediaUrl("images/gallery/munnar.png"),
   },
   {
     id: 2,
     title: "Temple Journeys",
     category: "Pilgrimage",
-    image: "/images/gallery/kanyakumari.png",
+    image: mediaUrl("images/gallery/kanyakumari.png"),
   },
   {
     id: 3,
     title: "Family Travel",
     category: "Travel",
-    image: "/images/gallery/rameswaram.png",
+    image: mediaUrl("images/gallery/rameswaram.png"),
   },
   {
     id: 4,
     title: "Group Tours",
     category: "Tours",
-    image: "/images/gallery/group.png",
+    image: mediaUrl("images/gallery/group.png"),
   },
   {
     id: 5,
     title: "Comfortable Vehicles",
     category: "Vehicles",
-    image: "/images/gallery/tempo.png",
+    image: mediaUrl("images/gallery/tempo.png"),
   },
   {
     id: 6,
     title: "Travel Experiences",
     category: "Travel",
-    image: "/images/gallery/travel.png",
+    image: mediaUrl("images/gallery/travel.png"),
   },
   {
     id: 7,
     title: "Scenic Destinations",
     category: "Destinations",
-    image: "/images/gallery/tour.png",
+    image: mediaUrl("images/gallery/tour.png"),
   },
   {
     id: 8,
     title: "Pilgrimage Travel",
     category: "Pilgrimage",
-    image: "/images/gallery/madurai.png",
+    image: mediaUrl("images/gallery/madurai.png"),
   },
   {
     id: 9,
     title: "Group Transportation",
     category: "Vehicles",
-    image: "/images/gallery/bus.png",
+    image: mediaUrl("images/gallery/bus.png"),
   },
   {
     id: 10,
     title: "Beautiful South India",
     category: "Destinations",
-    image: "/images/gallery/alleppey.png",
+    image: mediaUrl("images/gallery/alleppey.png"),
   },
   {
     id: 11,
     title: "Memorable Journeys",
     category: "Travel",
-    image: "/images/gallery/memorable.png",
+    image: mediaUrl("images/gallery/memorable.png"),
   },
   {
     id: 12,
     title: "Travel Together",
     category: "Tours",
-    image: "/images/gallery/travel1.png",
+    image: mediaUrl("images/gallery/travel1.png"),
   },
 ];
 

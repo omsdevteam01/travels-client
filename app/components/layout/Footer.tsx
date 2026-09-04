@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { mediaUrl } from "@/lib/media";
 import {
   ArrowUpRight,
   Clock3,
@@ -365,7 +366,7 @@ export default function Footer() {
                 "
               >
                 <img
-                  src="/images/logo/logo.png"
+                  src={mediaUrl("/images/logo/logo.png")}
                   alt="Baiya Tours & Travels"
                   className="
                     h-full

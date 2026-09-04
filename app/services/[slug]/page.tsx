@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import { mediaUrl } from "@/lib/media";
 import { motion, useReducedMotion } from "framer-motion";
 import {
   ArrowLeft,
@@ -96,7 +97,7 @@ const serviceDetails = {
     subtitle: "Thoughtfully arranged journeys across South India.",
     description:
       "Explore South India with thoughtfully arranged travel plans designed for families, individuals and groups. We help coordinate transportation, sightseeing and the important details that make your journey comfortable and organised.",
-    image: "/images/services/tour.jpg",
+    image: mediaUrl("/images/services/tour1.png"),
     icon: Compass,
     points: [
       "Family tours",
@@ -139,7 +140,7 @@ const serviceDetails = {
     subtitle: "Comfortable transportation for every kind of journey.",
     description:
       "Arrange suitable vehicles for local travel, long-distance journeys, family trips and group transportation. Choose practical travel options based on your group size and journey requirements.",
-    image: "/images/services/vehicle.jpg",
+    image: mediaUrl("/images/services/vehicle.png"),
     icon: BusFront,
     points: [
       "Cars and vans",
@@ -182,7 +183,7 @@ const serviceDetails = {
     subtitle: "Comfortable stays for individuals, families and groups.",
     description:
       "We help arrange suitable accommodation during your journey, whether you are travelling individually, with family or as part of a larger group.",
-    image: "/images/services/accommodation.jpg",
+    image: mediaUrl("/images/services/room.png"),
     icon: Hotel,
     points: [
       "Room arrangements",
@@ -225,7 +226,7 @@ const serviceDetails = {
     subtitle: "Suitable spaces for gatherings and programmes.",
     description:
       "Coordinate suitable halls and spaces for gatherings, religious programmes, meetings and group events with practical arrangements based on your requirements.",
-    image: "/images/services/hall.jpg",
+    image: mediaUrl("/images/services/hall.png"),
     icon: Building2,
     points: [
       "Hall booking support",
@@ -268,7 +269,7 @@ const serviceDetails = {
     subtitle: "Organised food and kitchen support for groups.",
     description:
       "Support for organised food and kitchen requirements during group stays, gatherings and programmes, helping make larger events easier to coordinate.",
-    image: "/images/services/kitchen.jpg",
+    image: mediaUrl("/images/services/kitchen.png"),
     icon: ChefHat,
     points: [
       "Kitchen arrangements",
@@ -311,7 +312,7 @@ const serviceDetails = {
     subtitle: "Travel and arrangements for spiritual occasions.",
     description:
       "Travel and facility coordination for religious gatherings, spiritual programmes and community events, with support for groups and organised programmes.",
-    image: "/images/services/religious.jpg",
+    image: mediaUrl("/images/services/program.png"),
     icon: Sparkles,
     points: [
       "Religious gatherings",
@@ -354,7 +355,7 @@ const serviceDetails = {
     subtitle: "Organised travel for meaningful spiritual journeys.",
     description:
       "Travel support for pilgrimage journeys, spiritual visits and religious groups with organised arrangements designed to make the journey more comfortable and manageable.",
-    image: "/images/services/pilgrimage.jpg",
+    image: mediaUrl("/images/services/temple.png"),
     icon: TempleIcon,
     points: [
       "Pilgrimage trips",
@@ -397,7 +398,7 @@ const serviceDetails = {
     subtitle: "Complete arrangements for memorable occasions.",
     description:
       "Complete arrangements for family functions, celebrations, community events and special gatherings, bringing together the services needed for a well-organised occasion.",
-    image: "/images/services/special.jpg",
+    image: mediaUrl("/images/services/special.png"),
     icon: Users,
     points: [
       "Family functions",

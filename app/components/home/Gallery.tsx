@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { mediaUrl } from "@/lib/media";
 import {
   motion,
   useReducedMotion,
@@ -22,42 +23,42 @@ type GalleryItem = {
 
 const galleryItems: GalleryItem[] = [
   {
-    src: "/images/gallery/bus.png",
+    src: mediaUrl("images/gallery/bus.png"),
     title: "Premium Travel",
     size: "normal",
   },
   {
-    src: "/images/gallery/comfort.png",
+    src: mediaUrl("images/gallery/comfort.png"),
     title: "Comfortable Journey",
     size: "normal",
   },
   {
-    src: "/images/gallery/travel.png",
+    src: mediaUrl("images/gallery/travel.png"),
     title: "Group Travel",
     size: "normal",
   },
   {
-    src: "/images/gallery/space.png",
+    src: mediaUrl("images/gallery/space.png"),
     title: "Spacious Seating",
     size: "normal",
   },
   {
-    src: "/images/gallery/munnar.png",
+    src: mediaUrl("images/gallery/munnar.png"),
     title: "South India Tours",
     size: "normal",
   },
   {
-    src: "/images/gallery/madurai.png",
+    src: mediaUrl("images/gallery/madurai.png"),
     title: "Pilgrimage Journey",
     size: "normal",
   },
   {
-    src: "/images/gallery/room.png",
+    src: mediaUrl("images/gallery/room.png"),
     title: "Comfortable Stay",
     size: "normal",
   },
   {
-    src: "/images/gallery/hall.png",
+    src: mediaUrl("images/gallery/hall.png"),
     title: "Event Hall",
     size: "normal",
   },

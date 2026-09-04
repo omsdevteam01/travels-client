@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { mediaUrl } from "@/lib/media";
 import {
   ArrowRight,
   MapPin,
@@ -31,14 +32,13 @@ const accommodations: Accommodation[] = [
     capacity: "2–4 Guests",
     description:
       "Comfortable hotel stays suitable for families, couples and individual travellers.",
-    image: "/images/accommodation/room1.png",
+    image: mediaUrl("images/accommodation/room1.png"),
     features: [
       "Comfortable rooms",
       "Private bathrooms",
       "Family friendly",
     ],
   },
-
   {
     name: "Family Rooms",
     slug: "family-rooms",
@@ -47,14 +47,13 @@ const accommodations: Accommodation[] = [
     capacity: "4–6 Guests",
     description:
       "Spacious rooms arranged for families travelling together.",
-    image: "/images/accommodation/family.png",
+    image: mediaUrl("images/accommodation/family.png"),
     features: [
       "Spacious rooms",
       "Family accommodation",
       "Convenient location",
     ],
   },
-
   {
     name: "Group Rooms",
     slug: "group-rooms",
@@ -63,14 +62,13 @@ const accommodations: Accommodation[] = [
     capacity: "6–10 Guests",
     description:
       "Practical accommodation for groups travelling for tours and programmes.",
-    image: "/images/accommodation/group.png",
+    image: mediaUrl("images/accommodation/group.png"),
     features: [
       "Group friendly",
       "Multiple beds",
       "Easy arrangements",
     ],
   },
-
   {
     name: "Pilgrim Accommodation",
     slug: "pilgrim-accommodation",
@@ -79,14 +77,13 @@ const accommodations: Accommodation[] = [
     capacity: "4–10 Guests",
     description:
       "Simple and convenient accommodation options for pilgrimage journeys.",
-    image: "/images/accommodation/stay.png",
+    image: mediaUrl("images/accommodation/stay.png"),
     features: [
       "Suitable for pilgrims",
       "Group accommodation",
       "Convenient access",
     ],
   },
-
   {
     name: "Function Halls",
     slug: "function-halls",
@@ -95,14 +92,13 @@ const accommodations: Accommodation[] = [
     capacity: "50–500 Guests",
     description:
       "Spacious halls for religious programmes, gatherings and special events.",
-    image: "/images/accommodation/hall1.png",
+    image: mediaUrl("images/accommodation/hall1.png"),
     features: [
       "Large capacity",
       "Event suitable",
       "Flexible arrangements",
     ],
   },
-
   {
     name: "Community Halls",
     slug: "community-halls",
@@ -111,7 +107,7 @@ const accommodations: Accommodation[] = [
     capacity: "100+ Guests",
     description:
       "Practical spaces for community gatherings, religious programmes and group activities.",
-    image: "/images/accommodation/community.png",
+    image: mediaUrl("images/accommodation/community.png"),
     features: [
       "Large groups",
       "Programme friendly",

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { mediaUrl } from "@/lib/media";
 import {
   motion,
   useReducedMotion,
@@ -24,21 +25,21 @@ const pilgrimagePlaces = [
     subtitle: "Sacred Temple Journey",
     description:
       "Plan a comfortable pilgrimage to the sacred island of Rameswaram with complete travel arrangements.",
-    image: "/images/pilgrimage/rameswaram.png",
+    image: mediaUrl("/images/pilgrimage/rameswaram.png"),
   },
   {
     title: "Madurai",
     subtitle: "Meenakshi Temple",
     description:
       "Experience the spiritual and cultural heritage of one of South India's most celebrated temple cities.",
-    image: "/images/pilgrimage/madurai.png",
+    image: mediaUrl("/images/pilgrimage/madurai.png"),
   },
   {
     title: "Kanyakumari",
     subtitle: "Spiritual & Coastal",
     description:
       "Combine spiritual experiences with the beauty of India's southernmost coastal destination.",
-    image: "/images/pilgrimage/kanyakumari.png",
+    image: mediaUrl("/images/pilgrimage/kanyakumari.png"),
   },
 ];
 

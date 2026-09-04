@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { mediaUrl } from "@/lib/media";
 import {
   ArrowRight,
   Check,
@@ -34,14 +35,13 @@ const vehicles: Vehicle[] = [
     luggage: "2–3 Bags",
     description:
       "A comfortable option for couples, families and everyday travel.",
-    image: "/images/vehicles/car2.png",
+    image: mediaUrl("images/vehicles/car2.png"),
     features: [
       "Air conditioning",
       "Comfortable seating",
       "Professional driver",
     ],
   },
-
   {
     name: "SUV",
     slug: "suv",
@@ -50,14 +50,13 @@ const vehicles: Vehicle[] = [
     luggage: "3–4 Bags",
     description:
       "Spacious travel for families and small groups on longer journeys.",
-    image: "/images/vehicles/car.png",
+    image: mediaUrl("images/vehicles/car.png"),
     features: [
       "Spacious interior",
       "Air conditioning",
       "Long-distance comfort",
     ],
   },
-
   {
     name: "Premium SUV",
     slug: "premium-suv",
@@ -66,14 +65,13 @@ const vehicles: Vehicle[] = [
     luggage: "4–5 Bags",
     description:
       "A premium choice when you want extra comfort throughout your journey.",
-    image: "/images/vehicles/car1.png",
+    image: mediaUrl("images/vehicles/car1.png"),
     features: [
       "Premium comfort",
       "Extra luggage space",
       "Air conditioning",
     ],
   },
-
   {
     name: "9 Seater",
     slug: "9-seater",
@@ -82,14 +80,13 @@ const vehicles: Vehicle[] = [
     luggage: "6–8 Bags",
     description:
       "Perfect for small families and groups travelling together.",
-    image: "/images/vehicles/van1.png",
+    image: mediaUrl("images/vehicles/van1.png"),
     features: [
       "Group-friendly seating",
       "Air conditioning",
       "Luggage space",
     ],
   },
-
   {
     name: "12 Seater",
     slug: "12-seater",
@@ -98,14 +95,13 @@ const vehicles: Vehicle[] = [
     luggage: "8–10 Bags",
     description:
       "A practical and comfortable option for medium-sized groups.",
-    image: "/images/vehicles/van.png",
+    image: mediaUrl("images/vehicles/van.png"),
     features: [
       "Spacious seating",
       "Air conditioning",
       "Tour-friendly",
     ],
   },
-
   {
     name: "17 Seater",
     slug: "17-seater",
@@ -114,14 +110,13 @@ const vehicles: Vehicle[] = [
     luggage: "12+ Bags",
     description:
       "Designed for larger families, groups and organised tours.",
-    image: "/images/vehicles/tempo.png",
+    image: mediaUrl("images/vehicles/tempo.png"),
     features: [
       "Large group capacity",
       "Air conditioning",
       "Ample luggage space",
     ],
   },
-
   {
     name: "Mini Bus",
     slug: "mini-bus",
@@ -130,14 +125,13 @@ const vehicles: Vehicle[] = [
     luggage: "Group Luggage",
     description:
       "Convenient group transportation for tours, events and gatherings.",
-    image: "/images/vehicles/bus.png",
+    image: mediaUrl("images/vehicles/bus.png"),
     features: [
       "Large seating capacity",
       "Air conditioning",
       "Group luggage support",
     ],
   },
-
   {
     name: "Tourist Bus",
     slug: "tourist-bus",
@@ -146,14 +140,13 @@ const vehicles: Vehicle[] = [
     luggage: "Large Capacity",
     description:
       "A spacious travel solution for large groups and extended journeys.",
-    image: "/images/vehicles/bus1.png",
+    image: mediaUrl("images/vehicles/bus1.png"),
     features: [
       "Large passenger capacity",
       "Comfortable seating",
       "Suitable for tours",
     ],
   },
-
   {
     name: "Large Bus",
     slug: "large-bus",
@@ -162,7 +155,7 @@ const vehicles: Vehicle[] = [
     luggage: "Large Capacity",
     description:
       "Ideal for large pilgrimage groups, tours and organised travel.",
-    image: "/images/vehicles/bus2.png",
+    image: mediaUrl("images/vehicles/bus2.png"),
     features: [
       "Large group capacity",
       "Comfortable seating",

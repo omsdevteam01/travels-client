@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { mediaUrl } from "@/lib/media";
 import {
   motion,
   useReducedMotion,
@@ -27,7 +28,7 @@ const accommodationItems = [
     title: "Comfortable Rooms",
     description:
       "Arrange comfortable rooms for individuals, families and pilgrimage groups during your journey.",
-    image: "/images/accommodation/room.png",
+    image: mediaUrl("/images/accommodation/room.png"),
     icon: BedDouble,
     features: [
       "Family & group rooms",
@@ -39,7 +40,7 @@ const accommodationItems = [
     title: "Halls",
     description:
       "Spacious halls for religious programmes, group gatherings, functions and special occasions.",
-    image: "/images/accommodation/hall.png",
+    image: mediaUrl("/images/accommodation/hall.png"),
     icon: Building2,
     features: [
       "Group gatherings",
@@ -51,7 +52,7 @@ const accommodationItems = [
     title: "Kitchen Arrangements",
     description:
       "Kitchen and food preparation arrangements for groups, events and spiritual programmes.",
-    image: "/images/accommodation/kitchen.png",
+    image: mediaUrl("/images/accommodation/kitchen.png"),
     icon: ChefHat,
     features: [
       "Group food arrangements",

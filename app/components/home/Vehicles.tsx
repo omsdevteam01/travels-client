@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { mediaUrl } from "@/lib/media";
 import {
   motion,
   useReducedMotion,
@@ -20,7 +21,7 @@ const vehicles = [
     slug: "cars",
     description:
       "Comfortable cars for couples, families and small groups.",
-    image: "/images/vehicles/car.png",
+    image: mediaUrl("/images/vehicles/car.png"),
     passengers: "1–4",
   },
   {
@@ -28,7 +29,7 @@ const vehicles = [
     slug: "vans",
     description:
       "Spacious vans for family tours and comfortable group travel.",
-    image: "/images/vehicles/van.png",
+    image: mediaUrl("/images/vehicles/van.png"),
     passengers: "5–12",
   },
   {
@@ -36,7 +37,7 @@ const vehicles = [
     slug: "tempo-travellers",
     description:
       "Ideal for pilgrimage trips, family tours and larger groups.",
-    image: "/images/vehicles/tempo.png",
+    image: mediaUrl("/images/vehicles/tempo.png"),
     passengers: "12–17",
   },
 ];

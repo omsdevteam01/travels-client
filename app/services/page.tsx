@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { mediaUrl } from "@/lib/media";
 import { motion, useReducedMotion } from "framer-motion";
 import {
   ArrowRight,
@@ -70,7 +71,7 @@ const services = [
     description:
       "Explore South India with thoughtfully arranged travel plans designed for families, individuals and groups.",
     icon: Compass,
-    image: "/images/services/tour1.png",
+    image: mediaUrl("/images/services/tour1.png"),
     features: [
       "Family tours",
       "Group tours",
@@ -84,7 +85,7 @@ const services = [
     description:
       "Arrange suitable vehicles for local travel, long-distance journeys, family trips and group transportation.",
     icon: BusFront,
-    image: "/images/services/vehicle.png",
+    image: mediaUrl("/images/services/vehicle.png"),
     features: [
       "Cars & vans",
       "Group transportation",
@@ -98,7 +99,7 @@ const services = [
     description:
       "Help arrange comfortable accommodation for individuals, families and larger groups during their journey.",
     icon: Hotel,
-    image: "/images/services/room.png",
+    image: mediaUrl("/images/services/room.png"),
     features: [
       "Room arrangements",
       "Group accommodation",
@@ -112,7 +113,7 @@ const services = [
     description:
       "Coordinate suitable halls and spaces for gatherings, religious programmes, meetings and group events.",
     icon: Building2,
-    image: "/images/services/hall.png",
+    image: mediaUrl("/images/services/hall.png"),
     features: [
       "Hall booking support",
       "Group gatherings",
@@ -126,7 +127,7 @@ const services = [
     description:
       "Support for organised food and kitchen requirements during group stays, gatherings and programmes.",
     icon: ChefHat,
-    image: "/images/services/kitchen.png",
+    image: mediaUrl("/images/services/kitchen.png"),
     features: [
       "Kitchen arrangements",
       "Group requirements",
@@ -140,7 +141,7 @@ const services = [
     description:
       "Travel and facility coordination for religious gatherings, spiritual programmes and community events.",
     icon: Sparkles,
-    image: "/images/services/program.png",
+    image: mediaUrl("/images/services/program.png"),
     features: [
       "Religious gatherings",
       "Travel arrangements",
@@ -154,7 +155,7 @@ const services = [
     description:
       "Travel support for pilgrimage journeys, spiritual visits and religious groups with organised arrangements.",
     icon: TempleIcon,
-    image: "/images/services/temple.png",
+    image: mediaUrl("/images/services/temple.png"),
     features: [
       "Pilgrimage trips",
       "Group travel",
@@ -168,7 +169,7 @@ const services = [
     description:
       "Complete arrangements for family functions, celebrations, community events and special gatherings.",
     icon: Users,
-    image: "/images/services/special.png",
+    image: mediaUrl("/images/services/special.png"),
     features: [
       "Family functions",
       "Event arrangements",
@@ -639,7 +640,7 @@ export default function ServicesPage() {
                   "
                 >
                   <img
-                    src="/images/services/tour.png"
+                    src={mediaUrl("/images/services/tour.png")}
                     alt="South India travel"
                     className="
                       h-full
@@ -709,7 +710,7 @@ export default function ServicesPage() {
                     "
                   >
                     <img
-                      src="/images/services/temp.png"
+                      src={mediaUrl("/images/services/temp.png")}
                       alt="Pilgrimage travel"
                       className="
                         h-full
@@ -758,7 +759,7 @@ export default function ServicesPage() {
                     "
                   >
                     <img
-                      src="/images/services/room.png"
+                      src={mediaUrl("/images/services/room.png")}
                       alt="Accommodation"
                       className="
                         h-full
@@ -814,7 +815,7 @@ export default function ServicesPage() {
                   "
                 >
                   <img
-                    src="/images/services/car.png"
+                    src={mediaUrl("/images/services/car.png")}
                     alt="Religious programme"
                     className="
                       h-full

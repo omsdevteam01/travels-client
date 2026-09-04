@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { mediaUrl } from "@/lib/media";
 import {
   ArrowRight,
   CheckCircle2,
@@ -173,7 +174,7 @@ export default function AboutPage() {
           className="absolute inset-0"
         >
           <img
-            src="/images/about/hero.png"
+            src={mediaUrl("images/about/hero.png")}
             alt="Beautiful tropical beach with coconut trees"
             className="h-full w-full object-cover object-[62%_72%] transition-transform duration-[1400ms] ease-out sm:object-[62%_center]"
           />
@@ -575,7 +576,7 @@ export default function AboutPage() {
                   transition={{
                     duration: 0.65,
                   }}
-                  src="/images/about/img1.png"
+                  src={mediaUrl("/images/about/img1.png")}
                   alt="Tropical coastal landscape"
                   className="h-full w-full object-cover"
                 />
@@ -604,7 +605,7 @@ export default function AboutPage() {
                   transition={{
                     duration: 0.65,
                   }}
-                  src="/images/about/img2.png"
+                  src={mediaUrl("/images/about/img2.png")}
                   alt="Peaceful beach sunset"
                   className="h-full w-full object-cover"
                 />
@@ -980,7 +981,7 @@ export default function AboutPage() {
               >
 
                 <img
-                  src="/images/about/img3.png"
+                  src={mediaUrl("/images/about/img3.png")}
                   alt="South Indian coastal journey"
                   className="h-[265px] w-full object-cover sm:h-[315px]"
                 />

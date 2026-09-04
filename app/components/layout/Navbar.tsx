@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { mediaUrl } from "@/lib/media";
 import {
   AnimatePresence,
   motion,
@@ -223,7 +224,7 @@ export default function Navbar() {
           >
             <div className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden sm:h-[68px] sm:w-[68px]">
               <img
-                src="/images/logo/logo.png"
+                src={mediaUrl("/images/logo/logo.png")}
                 alt="Baiya Tours & Travels"
                 className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
               />
