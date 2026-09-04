@@ -24,21 +24,21 @@ const pilgrimagePlaces = [
     subtitle: "Sacred Temple Journey",
     description:
       "Plan a comfortable pilgrimage to the sacred island of Rameswaram with complete travel arrangements.",
-    image: "/images/pilgrimage/rameswaram.jpg",
+    image: "/images/pilgrimage/rameswaram.png",
   },
   {
     title: "Madurai",
     subtitle: "Meenakshi Temple",
     description:
       "Experience the spiritual and cultural heritage of one of South India's most celebrated temple cities.",
-    image: "/images/pilgrimage/madurai.jpg",
+    image: "/images/pilgrimage/madurai.png",
   },
   {
     title: "Kanyakumari",
     subtitle: "Spiritual & Coastal",
     description:
       "Combine spiritual experiences with the beauty of India's southernmost coastal destination.",
-    image: "/images/pilgrimage/kanyakumari.jpg",
+    image: "/images/pilgrimage/kanyakumari.png",
   },
 ];
 
@@ -779,7 +779,7 @@ export default function Pilgrimage() {
                   "
                 >
                   <Link
-                    href="/pilgrimage"
+                    href="/tours"
                     aria-label={`Explore ${place.title}`}
                     className="
                       relative
@@ -1034,7 +1034,7 @@ export default function Pilgrimage() {
                   {/* Explore Destination */}
 
                   <Link
-                    href="/tour"
+                    href="/tours"
                     className="
                       group/link
                       mt-2.5
@@ -1085,7 +1085,7 @@ export default function Pilgrimage() {
             mt-7
             overflow-hidden
             rounded-[20px]
-            bg-[#071635]
+            bg-[#143A5E]
             shadow-[0_14px_35px_rgba(7,22,53,0.10)]
 
             sm:mt-8
@@ -1293,7 +1293,7 @@ export default function Pilgrimage() {
                     max-w-[500px]
                     text-[10.5px]
                     leading-[1.65]
-                    text-white/55
+                    text-white/90
 
                     sm:text-[11px]
                     sm:leading-5
@@ -1457,7 +1457,7 @@ export default function Pilgrimage() {
                         max-w-[210px]
                         text-[9.5px]
                         leading-[1.65]
-                        text-white/40
+                        text-white/75
 
                         sm:max-w-[190px]
                         sm:text-[10px]
@@ -1597,7 +1597,7 @@ export default function Pilgrimage() {
                     className="
                       mt-0.5
                       text-[9px]
-                      text-white/35
+                      text-white/60
                     "
                   >
                     Vehicles, rooms, halls and other arrangements.

@@ -145,6 +145,20 @@ const itemVariants: Variants = {
 export default function Footer() {
   const shouldReduceMotion = useReducedMotion();
 
+  const phone1 = process.env.NEXT_PUBLIC_PHONE_1 ?? "";
+  const phone2 = process.env.NEXT_PUBLIC_PHONE_2 ?? "";
+  const officePhone = process.env.NEXT_PUBLIC_OFFICE_PHONE ?? "";
+
+  const locations = [
+    process.env.NEXT_PUBLIC_LOCATION_1,
+    process.env.NEXT_PUBLIC_LOCATION_2,
+    process.env.NEXT_PUBLIC_LOCATION_3,
+    process.env.NEXT_PUBLIC_LOCATION_4,
+  ].filter(Boolean).join(" • ");
+
+  const officeAddress =
+    process.env.NEXT_PUBLIC_OFFICE_ADDRESS ?? "";
+
   const viewport = {
     once: true,
     amount: 0.1,
@@ -397,7 +411,7 @@ export default function Footer() {
                 max-w-sm
                 text-[10px]
                 leading-[1.65]
-                text-white/40
+                text-white/100
 
                 sm:mt-3.5
                 sm:text-[11px]
@@ -711,7 +725,7 @@ export default function Footer() {
               {/* Phone */}
 
               <a
-                href="tel:+910000000000"
+                href={phone1 ? `tel:+91${phone1}` : "#"}
                 className="
                   group
                   flex
@@ -745,7 +759,7 @@ export default function Footer() {
                       text-[7px]
                       uppercase
                       tracking-wider
-                      text-white/25
+                      text-white/100
 
                       sm:text-[8px]
                     "
@@ -768,8 +782,25 @@ export default function Footer() {
                       lg:text-xs
                     "
                   >
-                    +91 00000 00000
+                    {phone1 || "Phone unavailable"}
                   </p>
+
+                  {(phone2 || officePhone) && (
+                    <p
+                      className="
+                        mt-0.5
+                        text-[9px]
+                        font-medium
+                        text-white/45
+                        sm:text-[10px]
+                        lg:text-[11px]
+                      "
+                    >
+                      {phone2 && `Mob: ${phone2}`}
+                      {phone2 && officePhone && " • "}
+                      {officePhone && `Off: ${officePhone}`}
+                    </p>
+                  )}
                 </div>
               </a>
 
@@ -810,7 +841,7 @@ export default function Footer() {
                       text-[7px]
                       uppercase
                       tracking-wider
-                      text-white/25
+                      text-white/100
 
                       sm:text-[8px]
                     "
@@ -870,7 +901,7 @@ export default function Footer() {
                       text-[7px]
                       uppercase
                       tracking-wider
-                      text-white/25
+                      text-white/100
 
                       sm:text-[8px]
                     "
@@ -890,8 +921,23 @@ export default function Footer() {
                       lg:text-xs
                     "
                   >
-                    South India
+                    {locations || "South India"}
                   </p>
+
+                  {officeAddress && (
+                    <p
+                      className="
+                        mt-0.5
+                        text-[8.5px]
+                        leading-4
+                        text-white/40
+                        sm:text-[9px]
+                        sm:leading-5
+                      "
+                    >
+                      {officeAddress}
+                    </p>
+                  )}
                 </div>
               </div>
 
@@ -926,7 +972,7 @@ export default function Footer() {
                       text-[7px]
                       uppercase
                       tracking-wider
-                      text-white/25
+                      text-white/100
 
                       sm:text-[8px]
                     "

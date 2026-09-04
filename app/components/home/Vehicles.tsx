@@ -8,7 +8,6 @@ import {
 } from "framer-motion";
 import {
   ArrowRight,
-  BusFront,
   CarFront,
   CalendarDays,
   ShieldCheck,
@@ -21,27 +20,24 @@ const vehicles = [
     slug: "cars",
     description:
       "Comfortable cars for couples, families and small groups.",
-    image: "/images/vehicles/cars.jpg",
+    image: "/images/vehicles/car.png",
     passengers: "1–4",
-    icon: CarFront,
   },
   {
     title: "Vans",
     slug: "vans",
     description:
       "Spacious vans for family tours and comfortable group travel.",
-    image: "/images/vehicles/vans.jpg",
+    image: "/images/vehicles/van.png",
     passengers: "5–12",
-    icon: BusFront,
   },
   {
     title: "Tempo Travellers",
     slug: "tempo-travellers",
     description:
       "Ideal for pilgrimage trips, family tours and larger groups.",
-    image: "/images/vehicles/tempo-traveller.jpg",
+    image: "/images/vehicles/tempo.png",
     passengers: "12–17",
-    icon: BusFront,
   },
 ];
 
@@ -84,7 +80,7 @@ export default function VehiclesPage() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <main className="min-h-screen overflow-hidden bg-[#F8F4EA] text-[#071635]">
+    <main className="min-h-0 overflow-hidden bg-[#F8F4EA] text-[#071635]">
 
       {/* =====================================================
           HERO
@@ -191,7 +187,7 @@ export default function VehiclesPage() {
             w-full
             max-w-[1240px]
             px-3
-            pb-5
+            pb-1
             pt-5
 
             sm:px-6
@@ -586,7 +582,6 @@ export default function VehiclesPage() {
           >
 
             {vehicles.map((vehicle, index) => {
-              const Icon = vehicle.icon;
 
               return (
                 <motion.article
@@ -627,11 +622,11 @@ export default function VehiclesPage() {
                   <div
                     className="
                       relative
-                      h-[155px]
+                      h-[175px]
                       overflow-hidden
                       bg-[#EDE9DF]
 
-                      sm:h-[175px]
+                      sm:h-[195px]
                     "
                   >
 
@@ -765,77 +760,6 @@ export default function VehiclesPage() {
                       </div>
                     </motion.div>
 
-                    {/* Floating vehicle icon */}
-
-                    <motion.div
-                      initial={
-                        shouldReduceMotion
-                          ? undefined
-                          : {
-                              opacity: 0,
-                              y: 8,
-                              scale: 0.7,
-                            }
-                      }
-                      whileInView={
-                        shouldReduceMotion
-                          ? undefined
-                          : {
-                              opacity: 1,
-                              y: 0,
-                              scale: 1,
-                            }
-                      }
-                      viewport={{
-                        once: true,
-                      }}
-                      transition={{
-                        duration: 0.5,
-                        delay: 0.3,
-                        ease: [0.22, 1, 0.36, 1],
-                      }}
-                      whileHover={
-                        shouldReduceMotion
-                          ? undefined
-                          : {
-                              scale: 1.12,
-                              rotate: 8,
-                            }
-                      }
-                      className="
-                        absolute
-                        bottom-[-15px]
-                        left-1/2
-                        flex
-                        h-8
-                        w-8
-                        -translate-x-1/2
-                        items-center
-                        justify-center
-                        rounded-full
-                        border-2
-                        border-[#D99A18]/30
-                        bg-[#FDFBF6]
-                        text-[#D99A18]
-                        shadow-md
-                        transition-colors
-                        duration-300
-
-                        group-hover:border-[#D99A18]
-                        group-hover:bg-[#D99A18]
-                        group-hover:text-white
-
-                        sm:bottom-[-19px]
-                        sm:h-10
-                        sm:w-10
-                      "
-                    >
-                      <Icon
-                        size={14}
-                        className="sm:h-[17px] sm:w-[17px]"
-                      />
-                    </motion.div>
-
                   </div>
 
                   {/* =================================================
@@ -845,13 +769,13 @@ export default function VehiclesPage() {
                   <div
                     className="
                       px-2.5
-                      pb-2.5
-                      pt-5
+                      pb-2
+                      pt-2.5
                       text-center
 
                       sm:px-5
-                      sm:pb-3.5
-                      sm:pt-7
+                      sm:pb-2.5
+                      sm:pt-3.5
                     "
                   >
 
@@ -942,93 +866,6 @@ export default function VehiclesPage() {
 
                   </div>
 
-                  {/* =================================================
-                      FOOTER
-                  ================================================== */}
-
-                  <div
-                    className="
-                      flex
-                      min-h-[38px]
-                      items-center
-                      justify-between
-                      border-t
-                      border-[#071635]/7
-                      bg-[#FCFAF4]
-                      px-2.5
-                      py-1.5
-
-                      sm:min-h-[45px]
-                      sm:px-5
-                      sm:py-2.5
-                    "
-                  >
-
-                    <div
-                      className="
-                        flex
-                        items-center
-                        gap-1
-                        text-[6.5px]
-                        font-semibold
-                        text-[#071635]
-
-                        sm:gap-1.5
-                        sm:text-[9px]
-                      "
-                    >
-                      <ShieldCheck
-                        size={11}
-                        className="
-                          shrink-0
-                          text-[#D99A18]
-
-                          sm:h-[14px]
-                          sm:w-[14px]
-                        "
-                      />
-
-                      <span className="whitespace-nowrap">
-                        Comfortable Travel
-                      </span>
-                    </div>
-
-                    <Link
-                      href={`/vehicles/${vehicle.slug}`}
-                      className="
-                        group/details
-                        flex
-                        items-center
-                        gap-0.5
-                        text-[7px]
-                        font-bold
-                        text-[#071635]
-                        transition-colors
-                        duration-300
-
-                        hover:text-[#D99A18]
-
-                        sm:gap-1
-                        sm:text-[10px]
-                      "
-                    >
-                      Details
-
-                      <ArrowRight
-                        size={10}
-                        className="
-                          transition-transform
-                          duration-300
-                          group-hover/details:translate-x-1
-
-                          sm:h-3
-                          sm:w-3
-                        "
-                      />
-                    </Link>
-
-                  </div>
-
                 </motion.article>
               );
             })}
@@ -1063,7 +900,7 @@ export default function VehiclesPage() {
               ease: [0.22, 1, 0.36, 1],
             }}
             className="
-              mt-4
+              mt-2
               flex
               items-center
               justify-center
@@ -1096,7 +933,7 @@ export default function VehiclesPage() {
                   justify-center
                   gap-1.5
                   rounded-full
-                  bg-[#071635]
+                  bg-[#143A5E]
                   px-4
                   py-2
                   text-[8px]

@@ -15,9 +15,10 @@ export default function Home() {
       <Hero />
       <Services />
       <VideoShowcase />
-      <Vehicles />
+      
       <Tours />
       <Pilgrimage />
+      <Vehicles />
       <Accommodation />
       
       <Gallery />

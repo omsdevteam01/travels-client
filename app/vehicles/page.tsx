@@ -5,14 +5,12 @@ import { motion } from "framer-motion";
 import {
   ArrowRight,
   Check,
-  Search,
   Users,
   BriefcaseBusiness,
   Snowflake,
   ShieldCheck,
   CarFront,
 } from "lucide-react";
-import { useMemo, useState } from "react";
 
 type Vehicle = {
   name: string;
@@ -25,14 +23,7 @@ type Vehicle = {
   features: string[];
 };
 
-const vehicleCategories = [
-  "All",
-  "Cars",
-  "SUV",
-  "Tempo Traveller",
-  "Mini Bus",
-  "Bus",
-];
+
 
 const vehicles: Vehicle[] = [
   {
@@ -43,7 +34,7 @@ const vehicles: Vehicle[] = [
     luggage: "2–3 Bags",
     description:
       "A comfortable option for couples, families and everyday travel.",
-    image: "/images/vehicles/sedan.jpg",
+    image: "/images/vehicles/car2.png",
     features: [
       "Air conditioning",
       "Comfortable seating",
@@ -59,7 +50,7 @@ const vehicles: Vehicle[] = [
     luggage: "3–4 Bags",
     description:
       "Spacious travel for families and small groups on longer journeys.",
-    image: "/images/vehicles/innova.jpg",
+    image: "/images/vehicles/car.png",
     features: [
       "Spacious interior",
       "Air conditioning",
@@ -75,7 +66,7 @@ const vehicles: Vehicle[] = [
     luggage: "4–5 Bags",
     description:
       "A premium choice when you want extra comfort throughout your journey.",
-    image: "/images/vehicles/innova-crysta.jpg",
+    image: "/images/vehicles/car1.png",
     features: [
       "Premium comfort",
       "Extra luggage space",
@@ -91,7 +82,7 @@ const vehicles: Vehicle[] = [
     luggage: "6–8 Bags",
     description:
       "Perfect for small families and groups travelling together.",
-    image: "/images/vehicles/tempo-9.jpg",
+    image: "/images/vehicles/van1.png",
     features: [
       "Group-friendly seating",
       "Air conditioning",
@@ -107,7 +98,7 @@ const vehicles: Vehicle[] = [
     luggage: "8–10 Bags",
     description:
       "A practical and comfortable option for medium-sized groups.",
-    image: "/images/vehicles/tempo-12.jpg",
+    image: "/images/vehicles/van.png",
     features: [
       "Spacious seating",
       "Air conditioning",
@@ -123,7 +114,7 @@ const vehicles: Vehicle[] = [
     luggage: "12+ Bags",
     description:
       "Designed for larger families, groups and organised tours.",
-    image: "/images/vehicles/tempo-17.jpg",
+    image: "/images/vehicles/tempo.png",
     features: [
       "Large group capacity",
       "Air conditioning",
@@ -139,7 +130,7 @@ const vehicles: Vehicle[] = [
     luggage: "Group Luggage",
     description:
       "Convenient group transportation for tours, events and gatherings.",
-    image: "/images/vehicles/mini-bus.jpg",
+    image: "/images/vehicles/bus.png",
     features: [
       "Large seating capacity",
       "Air conditioning",
@@ -155,7 +146,7 @@ const vehicles: Vehicle[] = [
     luggage: "Large Capacity",
     description:
       "A spacious travel solution for large groups and extended journeys.",
-    image: "/images/vehicles/tourist-bus.jpg",
+    image: "/images/vehicles/bus1.png",
     features: [
       "Large passenger capacity",
       "Comfortable seating",
@@ -171,7 +162,7 @@ const vehicles: Vehicle[] = [
     luggage: "Large Capacity",
     description:
       "Ideal for large pilgrimage groups, tours and organised travel.",
-    image: "/images/vehicles/large-bus.jpg",
+    image: "/images/vehicles/bus2.png",
     features: [
       "Large group capacity",
       "Comfortable seating",
@@ -181,27 +172,6 @@ const vehicles: Vehicle[] = [
 ];
 
 export default function VehiclesPage() {
-  const [activeCategory, setActiveCategory] = useState("All");
-  const [searchTerm, setSearchTerm] = useState("");
-
-  const filteredVehicles = useMemo(() => {
-    return vehicles.filter((vehicle) => {
-      const matchesCategory =
-        activeCategory === "All" ||
-        vehicle.category === activeCategory;
-
-      const search = searchTerm.trim().toLowerCase();
-
-      const matchesSearch =
-        !search ||
-        vehicle.name.toLowerCase().includes(search) ||
-        vehicle.category.toLowerCase().includes(search) ||
-        vehicle.capacity.toLowerCase().includes(search);
-
-      return matchesCategory && matchesSearch;
-    });
-  }, [activeCategory, searchTerm]);
-
   return (
     <main className="min-h-screen overflow-x-hidden bg-[#F7F3E8] text-[#071635]">
 
@@ -286,7 +256,7 @@ export default function VehiclesPage() {
                 max-w-md
                 text-xs
                 leading-5
-                text-[#071635]/55
+                text-[#071635]/125
                 sm:text-sm
               "
             >
@@ -312,633 +282,348 @@ export default function VehiclesPage() {
             mx-auto
             max-w-[1250px]
             px-4
-            py-7
+            py-6
             sm:px-6
-            sm:py-9
+            sm:py-8
             lg:px-8
-            lg:py-10
+            lg:py-8
           "
         >
 
           {/* HEADER */}
 
-          <div
-            className="
-              flex
-              flex-col
-              gap-4
-              md:flex-row
-              md:items-center
-              md:justify-between
-            "
-          >
+          <div className="flex items-center gap-3">
 
-            <div className="flex items-center gap-3">
-
-              <div
-                className="
-                  flex
-                  h-10
-                  w-10
-                  shrink-0
-                  items-center
-                  justify-center
-                  rounded-xl
-                  bg-[#071635]
-                "
-              >
-                <CarFront
-                  size={18}
-                  className="text-[#D99A18]"
-                />
-              </div>
-
-              <div>
-                <p
-                  className="
-                    text-[9px]
-                    font-bold
-                    uppercase
-                    tracking-[0.18em]
-                    text-[#D99A18]
-                  "
-                >
-                  Travel Fleet
-                </p>
-
-                <h2
-                  className="
-                    mt-0.5
-                    text-xl
-                    font-extrabold
-                    tracking-[-0.035em]
-                  "
-                >
-                  Choose your vehicle
-                </h2>
-              </div>
-
+            <div
+              className="
+                flex
+                h-10
+                w-10
+                shrink-0
+                items-center
+                justify-center
+                rounded-xl
+                bg-[#173A67]
+              "
+            >
+              <CarFront size={18} className="text-[#D99A18]" />
             </div>
 
-            {/* SEARCH */}
+            <div>
+              <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-[#D99A18]">
+                Travel Fleet
+              </p>
 
-            <div className="relative w-full md:max-w-[280px]">
-
-              <Search
-                size={15}
-                className="
-                  absolute
-                  left-4
-                  top-1/2
-                  -translate-y-1/2
-                  text-[#071635]/30
-                "
-              />
-
-              <input
-                type="text"
-                value={searchTerm}
-                onChange={(event) =>
-                  setSearchTerm(event.target.value)
-                }
-                placeholder="Search vehicles..."
-                className="
-                  h-10
-                  w-full
-                  rounded-full
-                  border
-                  border-[#071635]/10
-                  bg-[#F7F3E8]
-                  pl-10
-                  pr-4
-                  text-xs
-                  font-medium
-                  outline-none
-                  transition-all
-                  placeholder:text-[#071635]/30
-                  focus:border-[#D99A18]/40
-                  focus:ring-2
-                  focus:ring-[#D99A18]/10
-                "
-              />
-
+              <h2 className="mt-0.5 text-xl font-extrabold tracking-[-0.035em] text-[#071635]">
+                Choose your vehicle
+              </h2>
             </div>
 
           </div>
 
-          {/* FILTERS */}
+          {/* VEHICLE GRID */}
 
-          <div
-            className="
-              mt-4
-              -mx-4
-              overflow-x-auto
-              px-4
-              pb-1
-              sm:mx-0
-              sm:px-0
-            "
-          >
+          <div className="mt-4 sm:mt-5">
 
-            <div className="flex min-w-max gap-2">
+            <motion.div
+              layout
+              className="
+                grid
+                grid-cols-1
+                gap-3
+                sm:grid-cols-2
+                lg:grid-cols-3
+              "
+            >
 
-              {vehicleCategories.map((category) => {
-                const active =
-                  activeCategory === category;
+              {vehicles.map((vehicle, index) => (
 
-                return (
-                  <button
-                    key={category}
-                    type="button"
-                    onClick={() =>
-                      setActiveCategory(category)
-                    }
-                    className={`
-                      rounded-full
-                      px-4
-                      py-2
-                      text-[10px]
-                      font-bold
-                      whitespace-nowrap
-                      transition-all
-                      duration-300
-                      sm:text-xs
-                      ${
-                        active
-                          ? "bg-[#D99A18] text-[#071635]"
-                          : "bg-[#F7F3E8] text-[#071635]/55 hover:bg-[#071635]/10"
-                      }
-                    `}
-                  >
-                    {category}
-                  </button>
-                );
-              })}
+                <motion.article
+                  layout
+                  key={vehicle.slug}
+                  initial={{
+                    opacity: 0,
+                    y: 18,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  transition={{
+                    duration: 0.4,
+                    delay: Math.min(index * 0.035, 0.18),
+                  }}
+                  className="
+                    group
+                    overflow-hidden
+                    rounded-[16px]
+                    border
+                    border-[#071635]/12
+                    bg-[#F7F3E8]
+                    transition-all
+                    duration-300
+                    hover:-translate-y-1
+                    hover:shadow-[0_18px_45px_rgba(7,22,53,0.10)]
+                  "
+                >
 
-            </div>
+                  {/* IMAGE */}
 
-          </div>
-
-          {/* =================================================
-              VEHICLE GRID
-          ================================================== */}
-
-          <div className="mt-6">
-
-            {filteredVehicles.length > 0 ? (
-
-              <motion.div
-                layout
-                className="
-                  grid
-                  grid-cols-1
-                  gap-4
-                  sm:grid-cols-2
-                  lg:grid-cols-3
-                "
-              >
-
-                {filteredVehicles.map((vehicle, index) => (
-
-                  <motion.article
-                    layout
-                    key={vehicle.slug}
-                    initial={{
-                      opacity: 0,
-                      y: 18,
-                    }}
-                    animate={{
-                      opacity: 1,
-                      y: 0,
-                    }}
-                    transition={{
-                      duration: 0.4,
-                      delay: Math.min(index * 0.035, 0.18),
-                    }}
+                  <div
                     className="
-                      group
+                      relative
+                      h-[145px]
                       overflow-hidden
-                      rounded-[20px]
-                      border
-                      border-[#071635]/7
-                      bg-[#F7F3E8]
-                      transition-all
-                      duration-300
-                      hover:-translate-y-1
-                      hover:shadow-[0_18px_45px_rgba(7,22,53,0.10)]
+                      bg-[#EDE8DB]
+                      sm:h-[180px]
+                      lg:h-[190px]
                     "
                   >
 
-                    {/* IMAGE */}
+                    <img
+                      src={vehicle.image}
+                      alt={vehicle.name}
+                      loading="lazy"
+                      className="
+                        h-full
+                        w-full
+                        object-cover
+                        transition-transform
+                        duration-700
+                        group-hover:scale-[1.06]
+                      "
+                    />
 
-                    <Link
-                      href={`/vehicles/${vehicle.slug}`}
-                      className="block"
+                    <div
+                      className="
+                        absolute
+                        inset-0
+                        bg-gradient-to-t
+                        from-[#173A67]/75
+                        via-[#173A67]/5
+                        to-transparent
+                      "
+                    />
+
+                    <div
+                      className="
+                        absolute
+                        left-2.5
+                        top-2.5
+                        rounded-full
+                        bg-white/90
+                        px-2.5
+                        py-1
+                        text-[7px]
+                        font-bold
+                        uppercase
+                        tracking-[0.12em]
+                        text-[#071635]
+                        backdrop-blur-sm
+                      "
+                    >
+                      {vehicle.category}
+                    </div>
+
+                    <div
+                      className="
+                        absolute
+                        right-2.5
+                        top-2.5
+                        flex
+                        items-center
+                        gap-1
+                        rounded-full
+                        bg-[#173A67]/90
+                        px-2.5
+                        py-1
+                        text-[7px]
+                        font-bold
+                        text-white
+                        backdrop-blur-sm
+                      "
+                    >
+                      <Users size={9} />
+                      {vehicle.capacity}
+                    </div>
+
+                    <div
+                      className="
+                        absolute
+                        bottom-2.5
+                        left-3
+                        right-3
+                      "
+                    >
+                      <h3
+                        className="
+                          text-[18px]
+                          font-extrabold
+                          leading-none
+                          tracking-[-0.04em]
+                          text-white
+                        "
+                      >
+                        {vehicle.name}
+                      </h3>
+                    </div>
+
+                  </div>
+
+                  {/* CARD CONTENT */}
+
+                  <div className="p-3 sm:p-3.5">
+
+                    <div
+                      className="
+                        flex
+                        items-center
+                        justify-between
+                        gap-2
+                        rounded-lg
+                        bg-white
+                        px-2.5
+                        py-2
+                      "
                     >
 
-                      <div
-                        className="
-                          relative
-                          h-[190px]
-                          overflow-hidden
-                          bg-[#EDE8DB]
-                          sm:h-[205px]
-                          lg:h-[210px]
-                        "
-                      >
+                      <div className="flex items-center gap-2">
 
-                        <img
-                          src={vehicle.image}
-                          alt={vehicle.name}
-                          loading="lazy"
-                          className="
-                            h-full
-                            w-full
-                            object-cover
-                            transition-transform
-                            duration-700
-                            group-hover:scale-[1.06]
-                          "
+                        <Users
+                          size={12}
+                          className="shrink-0 text-[#D99A18]"
                         />
 
-                        {/* GRADIENT */}
-
-                        <div
-                          className="
-                            absolute
-                            inset-0
-                            bg-gradient-to-t
-                            from-[#071635]/75
-                            via-[#071635]/5
-                            to-transparent
-                          "
-                        />
-
-                        {/* CATEGORY */}
-
-                        <div
-                          className="
-                            absolute
-                            left-3
-                            top-3
-                            rounded-full
-                            bg-white/90
-                            px-3
-                            py-1.5
-                            text-[8px]
-                            font-bold
-                            uppercase
-                            tracking-[0.12em]
-                            text-[#071635]
-                            backdrop-blur-sm
-                          "
-                        >
-                          {vehicle.category}
-                        </div>
-
-                        {/* CAPACITY */}
-
-                        <div
-                          className="
-                            absolute
-                            right-3
-                            top-3
-                            flex
-                            items-center
-                            gap-1.5
-                            rounded-full
-                            bg-[#071635]/90
-                            px-3
-                            py-1.5
-                            text-[8px]
-                            font-bold
-                            text-white
-                            backdrop-blur-sm
-                          "
-                        >
-                          <Users size={10} />
-                          {vehicle.capacity}
-                        </div>
-
-                        {/* NAME */}
-
-                        <div
-                          className="
-                            absolute
-                            bottom-3
-                            left-4
-                            right-4
-                          "
-                        >
-
-                          <h3
+                        <div>
+                          <p
                             className="
-                              text-[23px]
-                              font-extrabold
-                              leading-none
-                              tracking-[-0.04em]
-                              text-white
+                              text-[7px]
+                              font-bold
+                              uppercase
+                              tracking-wide
+                              text-[#071635]/50
                             "
                           >
-                            {vehicle.name}
-                          </h3>
+                            Capacity
+                          </p>
 
+                          <p className="text-[9px] font-bold text-[#071635]">
+                            {vehicle.capacity}
+                          </p>
                         </div>
 
                       </div>
 
-                    </Link>
-
-                    {/* CARD CONTENT */}
-
-                    <div className="p-3.5">
-
-                      {/* INFO */}
-
                       <div
                         className="
-                          flex
-                          items-center
-                          justify-between
-                          gap-2
-                          rounded-xl
-                          bg-white
-                          px-3
-                          py-2.5
+                          h-7
+                          w-px
+                          shrink-0
+                          bg-[#173A67]/8
                         "
-                      >
+                      />
 
-                        <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2">
 
-                          <Users
-                            size={13}
-                            className="shrink-0 text-[#D99A18]"
-                          />
-
-                          <div>
-
-                            <p
-                              className="
-                                text-[7px]
-                                font-bold
-                                uppercase
-                                tracking-wide
-                                text-[#071635]/30
-                              "
-                            >
-                              Capacity
-                            </p>
-
-                            <p
-                              className="
-                                text-[10px]
-                                font-bold
-                              "
-                            >
-                              {vehicle.capacity}
-                            </p>
-
-                          </div>
-
-                        </div>
-
-                        <div
-                          className="
-                            h-7
-                            w-px
-                            shrink-0
-                            bg-[#071635]/8
-                          "
+                        <BriefcaseBusiness
+                          size={12}
+                          className="shrink-0 text-[#D99A18]"
                         />
 
-                        <div className="flex items-center gap-2">
+                        <div>
+                          <p
+                            className="
+                              text-[7px]
+                              font-bold
+                              uppercase
+                              tracking-wide
+                              text-[#071635]/50
+                            "
+                          >
+                            Luggage
+                          </p>
 
-                          <BriefcaseBusiness
-                            size={13}
-                            className="shrink-0 text-[#D99A18]"
-                          />
-
-                          <div>
-
-                            <p
-                              className="
-                                text-[7px]
-                                font-bold
-                                uppercase
-                                tracking-wide
-                                text-[#071635]/30
-                              "
-                            >
-                              Luggage
-                            </p>
-
-                            <p
-                              className="
-                                text-[10px]
-                                font-bold
-                              "
-                            >
-                              {vehicle.luggage}
-                            </p>
-
-                          </div>
-
+                          <p className="text-[9px] font-bold text-[#071635]">
+                            {vehicle.luggage}
+                          </p>
                         </div>
 
                       </div>
-
-                      {/* DESCRIPTION */}
-
-                      <p
-                        className="
-                          mt-2.5
-                          line-clamp-2
-                          min-h-[40px]
-                          text-[10px]
-                          leading-5
-                          text-[#071635]/50
-                        "
-                      >
-                        {vehicle.description}
-                      </p>
-
-                      {/* FEATURES */}
-
-                      <div
-                        className="
-                          mt-2.5
-                          flex
-                          flex-wrap
-                          gap-x-3
-                          gap-y-1.5
-                        "
-                      >
-
-                        {vehicle.features
-                          .slice(0, 3)
-                          .map((feature) => (
-
-                            <div
-                              key={feature}
-                              className="
-                                flex
-                                items-center
-                                gap-1.5
-                                text-[8px]
-                                font-semibold
-                                text-[#071635]/55
-                              "
-                            >
-
-                              <span
-                                className="
-                                  flex
-                                  h-4
-                                  w-4
-                                  shrink-0
-                                  items-center
-                                  justify-center
-                                  rounded-full
-                                  bg-[#D99A18]/12
-                                "
-                              >
-                                <Check
-                                  size={8}
-                                  className="text-[#D99A18]"
-                                />
-                              </span>
-
-                              {feature}
-
-                            </div>
-
-                          ))}
-
-                      </div>
-
-                      {/* LINK */}
-
-                      <Link
-                        href={`/vehicles/${vehicle.slug}`}
-                        className="
-                          group/link
-                          mt-3
-                          flex
-                          items-center
-                          justify-between
-                          border-t
-                          border-[#071635]/7
-                          pt-2.5
-                          text-[10px]
-                          font-bold
-                          text-[#071635]
-                        "
-                      >
-
-                        <span>
-                          View vehicle
-                        </span>
-
-                        <span
-                          className="
-                            flex
-                            h-7
-                            w-7
-                            items-center
-                            justify-center
-                            rounded-full
-                            bg-[#071635]
-                            text-white
-                            transition-all
-                            duration-300
-                            group-hover/link:bg-[#D99A18]
-                            group-hover/link:text-[#071635]
-                          "
-                        >
-
-                          <ArrowRight
-                            size={11}
-                            className="
-                              transition-transform
-                              duration-300
-                              group-hover/link:translate-x-0.5
-                            "
-                          />
-
-                        </span>
-
-                      </Link>
 
                     </div>
 
-                  </motion.article>
+                    <p
+                      className="
+                        mt-1.5
+                        line-clamp-2
+                        min-h-[32px]
+                        text-[9px]
+                        leading-4
+                        text-[#071635]/80
+                      "
+                    >
+                      {vehicle.description}
+                    </p>
 
-                ))}
+                    <div
+                      className="
+                        mt-1.5
+                        flex
+                        flex-wrap
+                        gap-x-2.5
+                        gap-y-1
+                      "
+                    >
 
-              </motion.div>
+                      {vehicle.features
+                        .slice(0, 3)
+                        .map((feature) => (
 
-            ) : (
+                          <div
+                            key={feature}
+                            className="
+                              flex
+                              items-center
+                              gap-1
+                              text-[7px]
+                              font-semibold
+                              text-[#071635]/75
+                            "
+                          >
 
-              /* NO RESULTS */
+                            <span
+                              className="
+                                flex
+                                h-3.5
+                                w-3.5
+                                shrink-0
+                                items-center
+                                justify-center
+                                rounded-full
+                                bg-[#D99A18]/12
+                              "
+                            >
+                              <Check
+                                size={7}
+                                className="text-[#D99A18]"
+                              />
+                            </span>
 
-              <div
-                className="
-                  rounded-[20px]
-                  bg-[#F7F3E8]
-                  px-5
-                  py-12
-                  text-center
-                "
-              >
+                            {feature}
 
-                <Search
-                  size={22}
-                  className="mx-auto text-[#D99A18]"
-                />
+                          </div>
 
-                <h3
-                  className="
-                    mt-3
-                    text-lg
-                    font-extrabold
-                  "
-                >
-                  No vehicles found
-                </h3>
+                        ))}
 
-                <p
-                  className="
-                    mt-1.5
-                    text-xs
-                    text-[#071635]/45
-                  "
-                >
-                  Try another vehicle or category.
-                </p>
+                    </div>
 
-                <button
-                  type="button"
-                  onClick={() => {
-                    setActiveCategory("All");
-                    setSearchTerm("");
-                  }}
-                  className="
-                    mt-4
-                    rounded-full
-                    bg-[#071635]
-                    px-5
-                    py-2.5
-                    text-xs
-                    font-bold
-                    text-white
-                  "
-                >
-                  Show All Vehicles
-                </button>
+                  </div>
 
-              </div>
+                </motion.article>
 
-            )}
+              ))}
+
+            </motion.div>
 
           </div>
 
@@ -1168,7 +853,7 @@ export default function VehiclesPage() {
               relative
               overflow-hidden
               rounded-[24px]
-              bg-[#071635]
+              bg-[#173A67]
               px-5
               py-7
               sm:px-8
@@ -1328,7 +1013,7 @@ export default function VehiclesPage() {
             justify-center
             gap-2
             rounded-full
-            bg-[#071635]
+            bg-[#173A67]
             px-6
             py-3
             text-sm

@@ -98,7 +98,7 @@ export default async function TourDetailPage({
 
       <section className="bg-[#F7F3E8]">
 
-        <div className="mx-auto max-w-[1350px] px-4 pb-5 pt-5 sm:px-6 sm:pb-7 sm:pt-7 lg:px-10">
+        <div className="mx-auto max-w-[1350px] px-4 pb-3 pt-4 sm:px-6 sm:pb-7 sm:pt-7 lg:px-10">
 
           <Link
             href="/tours"
@@ -153,7 +153,7 @@ export default async function TourDetailPage({
             <div
               className="
                 relative
-                h-[330px]
+                h-[285px]
                 sm:h-[430px]
                 lg:h-[570px]
               "
@@ -229,9 +229,9 @@ export default async function TourDetailPage({
 
                 <h1
                   className="
-                    mt-3
+                    mt-2.5
                     max-w-5xl
-                    text-[38px]
+                    text-[32px]
                     font-extrabold
                     leading-[1]
                     tracking-[-0.05em]
@@ -245,7 +245,7 @@ export default async function TourDetailPage({
 
                 {/* META */}
 
-                <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2">
+                <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1.5">
 
                   <div className="flex items-center gap-2 text-white/70">
 
@@ -295,7 +295,7 @@ export default async function TourDetailPage({
             mx-auto
             max-w-[1150px]
             px-4
-            py-10
+            py-7
             sm:px-6
             sm:py-14
             lg:px-8
@@ -306,7 +306,7 @@ export default async function TourDetailPage({
           <div
             className="
               grid
-              gap-10
+              gap-7
               lg:grid-cols-[minmax(0,1fr)_350px]
               lg:gap-16
             "
@@ -359,10 +359,10 @@ export default async function TourDetailPage({
 
                 <p
                   className="
-                    mt-5
+                    mt-4
                     max-w-3xl
-                    text-sm
-                    leading-7
+                    text-[13px]
+                    leading-6
                     text-[#071635]/55
                     sm:text-base
                     sm:leading-8
@@ -377,10 +377,10 @@ export default async function TourDetailPage({
 
               <div
                 className="
-                  mt-8
+                  mt-6
                   grid
                   grid-cols-2
-                  gap-3
+                  gap-2.5
                   sm:grid-cols-3
                 "
               >
@@ -389,7 +389,7 @@ export default async function TourDetailPage({
                   className="
                     rounded-2xl
                     bg-[#F7F3E8]
-                    p-4
+                    p-3.5
                     sm:p-5
                   "
                 >
@@ -463,7 +463,7 @@ export default async function TourDetailPage({
 
               {/* HIGHLIGHTS */}
 
-              <div className="mt-10">
+              <div className="mt-7 sm:mt-10">
 
                 <div className="flex items-center gap-3">
 
@@ -497,7 +497,7 @@ export default async function TourDetailPage({
 
                 <div
                   className="
-                    mt-5
+                    mt-4
                     grid
                     gap-2
                     sm:grid-cols-2
@@ -515,8 +515,8 @@ export default async function TourDetailPage({
                         border
                         border-[#071635]/5
                         bg-[#F7F3E8]/65
-                        px-4
-                        py-3.5
+                        px-3.5
+                        py-3
                         transition-all
                         duration-300
                         hover:border-[#D99A18]/20
@@ -566,13 +566,13 @@ export default async function TourDetailPage({
 
               <div
                 className="
-                  mt-8
+                  mt-6
                   rounded-2xl
                   border-l-4
                   border-[#D99A18]
                   bg-[#F7F3E8]
-                  px-5
-                  py-4
+                  px-4
+                  py-3.5
                   sm:px-6
                   sm:py-5
                 "
@@ -599,13 +599,13 @@ export default async function TourDetailPage({
                 <div
                   className="
                     overflow-hidden
-                    rounded-[24px]
+                    rounded-[20px]
                     bg-[#071635]
                     shadow-xl
                   "
                 >
 
-                  <div className="p-6 sm:p-7">
+                  <div className="p-5 sm:p-7">
 
                     <span
                       className="
@@ -621,8 +621,8 @@ export default async function TourDetailPage({
 
                     <h3
                       className="
-                        mt-3
-                        text-2xl
+                        mt-2.5
+                        text-xl
                         font-extrabold
                         leading-tight
                         tracking-[-0.03em]
@@ -637,9 +637,9 @@ export default async function TourDetailPage({
 
                     <p
                       className="
-                        mt-3
-                        text-sm
-                        leading-6
+                        mt-2.5
+                        text-[13px]
+                        leading-5
                         text-white/45
                       "
                     >
@@ -651,8 +651,8 @@ export default async function TourDetailPage({
 
                     <div
                       className="
-                        mt-6
-                        space-y-4
+                        mt-5
+                        space-y-3
                         border-t
                         border-white/10
                         pt-5
@@ -703,9 +703,9 @@ export default async function TourDetailPage({
                       href="/contact"
                       className="
                         group
-                        mt-7
+                        mt-5
                         flex
-                        min-h-12
+                        min-h-11
                         w-full
                         items-center
                         justify-center
@@ -784,7 +784,7 @@ export default async function TourDetailPage({
               mx-auto
               max-w-[1150px]
               px-4
-              py-12
+              py-9
               sm:px-6
               sm:py-14
               lg:px-8
@@ -856,9 +856,9 @@ export default async function TourDetailPage({
 
             <div
               className="
-                mt-6
+                mt-5
                 grid
-                gap-4
+                gap-3.5
                 sm:grid-cols-2
                 lg:grid-cols-3
               "
@@ -882,7 +882,7 @@ export default async function TourDetailPage({
 
                   {/* IMAGE */}
 
-                  <div className="relative h-[190px] overflow-hidden">
+                  <div className="relative h-[175px] overflow-hidden sm:h-[190px]">
 
                     <img
                       src={item.image}
@@ -1055,7 +1055,7 @@ export default async function TourDetailPage({
             mx-auto
             max-w-[1150px]
             px-4
-            py-10
+            py-8
             sm:px-6
             sm:py-14
             lg:px-8
@@ -1069,8 +1069,8 @@ export default async function TourDetailPage({
               overflow-hidden
               rounded-[26px]
               bg-[#071635]
-              px-6
-              py-9
+              px-5
+              py-7
               sm:px-9
               sm:py-11
               lg:px-12
@@ -1124,9 +1124,9 @@ export default async function TourDetailPage({
 
               <h2
                 className="
-                  mt-3
+                  mt-2.5
                   max-w-2xl
-                  text-2xl
+                  text-[22px]
                   font-extrabold
                   leading-tight
                   tracking-[-0.035em]
@@ -1140,10 +1140,10 @@ export default async function TourDetailPage({
 
               <p
                 className="
-                  mt-3
+                  mt-2.5
                   max-w-2xl
-                  text-sm
-                  leading-6
+                  text-[13px]
+                  leading-5
                   text-white/45
                 "
               >
@@ -1156,9 +1156,9 @@ export default async function TourDetailPage({
                 href="/contact"
                 className="
                   group
-                  mt-6
+                  mt-5
                   inline-flex
-                  min-h-11
+                  min-h-10
                   items-center
                   justify-center
                   gap-2

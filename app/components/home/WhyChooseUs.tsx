@@ -722,7 +722,7 @@ export default function WhyChooseUs() {
                 justify-center
                 overflow-hidden
                 rounded-[15px]
-                bg-[#0B1F4D]
+                bg-[#143A5E]
                 px-4
                 py-6
 

@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useState } from "react";
 import {
   ArrowRight,
-  Camera,
   ChevronLeft,
   ChevronRight,
   X,
@@ -22,73 +21,73 @@ const galleryItems: GalleryItem[] = [
     id: 1,
     title: "South India Tours",
     category: "Tours",
-    image: "/images/gallery/tour-1.jpg",
+    image: "/images/gallery/munnar.png",
   },
   {
     id: 2,
     title: "Temple Journeys",
     category: "Pilgrimage",
-    image: "/images/gallery/tour-2.jpg",
+    image: "/images/gallery/kanyakumari.png",
   },
   {
     id: 3,
     title: "Family Travel",
     category: "Travel",
-    image: "/images/gallery/tour-3.jpg",
+    image: "/images/gallery/rameswaram.png",
   },
   {
     id: 4,
     title: "Group Tours",
     category: "Tours",
-    image: "/images/gallery/tour-4.jpg",
+    image: "/images/gallery/group.png",
   },
   {
     id: 5,
     title: "Comfortable Vehicles",
     category: "Vehicles",
-    image: "/images/gallery/vehicle-1.jpg",
+    image: "/images/gallery/tempo.png",
   },
   {
     id: 6,
     title: "Travel Experiences",
     category: "Travel",
-    image: "/images/gallery/tour-5.jpg",
+    image: "/images/gallery/travel.png",
   },
   {
     id: 7,
     title: "Scenic Destinations",
     category: "Destinations",
-    image: "/images/gallery/tour-6.jpg",
+    image: "/images/gallery/tour.png",
   },
   {
     id: 8,
     title: "Pilgrimage Travel",
     category: "Pilgrimage",
-    image: "/images/gallery/tour-7.jpg",
+    image: "/images/gallery/madurai.png",
   },
   {
     id: 9,
     title: "Group Transportation",
     category: "Vehicles",
-    image: "/images/gallery/vehicle-2.jpg",
+    image: "/images/gallery/bus.png",
   },
   {
     id: 10,
     title: "Beautiful South India",
     category: "Destinations",
-    image: "/images/gallery/tour-8.jpg",
+    image: "/images/gallery/alleppey.png",
   },
   {
     id: 11,
     title: "Memorable Journeys",
     category: "Travel",
-    image: "/images/gallery/tour-9.jpg",
+    image: "/images/gallery/memorable.png",
   },
   {
     id: 12,
     title: "Travel Together",
     category: "Tours",
-    image: "/images/gallery/tour-10.jpg",
+    image: "/images/gallery/travel1.png",
   },
 ];
 
@@ -152,7 +151,7 @@ export default function GalleryPage() {
           HERO
       ====================================================== */}
 
-      <section className="relative overflow-hidden bg-[#071635]">
+      <section className="relative overflow-hidden bg-[#173A67]">
 
         <div
           className="
@@ -267,7 +266,7 @@ export default function GalleryPage() {
             w-full
             max-w-[1200px]
             px-4
-            py-8
+            py-6
             sm:px-6
             sm:py-10
             lg:px-8
@@ -321,12 +320,19 @@ export default function GalleryPage() {
 
             <div
               className="
-                flex
-                max-w-full
-                gap-1.5
-                overflow-x-auto
-                pb-1
-                scrollbar-hide
+                grid
+                w-full
+                max-w-[360px]
+                grid-cols-4
+                gap-2
+                justify-items-center
+                sm:flex
+                sm:max-w-full
+                sm:flex-wrap
+                sm:justify-end
+                sm:gap-1.5
+                sm:overflow-x-visible
+                sm:pb-0
               "
             >
               {categories.map((category) => {
@@ -342,17 +348,27 @@ export default function GalleryPage() {
                       setSelectedIndex(null);
                     }}
                     className={`
-                      shrink-0
+                      flex
+                      w-full
+                      items-center
+                      justify-center
                       rounded-full
-                      px-3.5
-                      py-2
-                      text-[10px]
+                      px-2
+                      py-2.5
+                      text-[9px]
+                      leading-none
+                      whitespace-nowrap
+                      sm:w-auto
+                      sm:shrink-0
+                      sm:px-3.5
+                      sm:py-2
+                      sm:text-[10px]
                       font-bold
                       transition-all
                       duration-300
                       ${
                         isActive
-                          ? "bg-[#071635] text-white"
+                          ? "bg-[#173A67] text-white"
                           : "border border-[#071635]/10 bg-[#F7F3E8] text-[#071635]/60 hover:border-[#D99A18]/40 hover:text-[#071635]"
                       }
                     `}
@@ -371,10 +387,10 @@ export default function GalleryPage() {
 
           <div
             className="
-              mt-7
+              mt-5
               grid
               grid-cols-2
-              gap-3
+              gap-2.5
               sm:gap-4
               lg:grid-cols-3
             "
@@ -390,10 +406,10 @@ export default function GalleryPage() {
                   group
                   relative
                   block
-                  aspect-[1/1.08]
+                  aspect-[1.18/1]
                   overflow-hidden
-                  rounded-[18px]
-                  bg-[#071635]
+                  rounded-[13px]
+                  bg-[#173A67]
                   text-left
                   outline-none
                   ring-offset-2
@@ -433,8 +449,8 @@ export default function GalleryPage() {
                     absolute
                     inset-0
                     bg-gradient-to-t
-                    from-[#071635]/90
-                    via-[#071635]/10
+                    from-[#173A67]/90
+                    via-[#173A67]/10
                     to-transparent
                     opacity-80
                     transition-opacity
@@ -443,31 +459,6 @@ export default function GalleryPage() {
                   "
                 />
 
-                {/* CAMERA ICON */}
-
-                <div
-                  className="
-                    absolute
-                    right-3
-                    top-3
-                    flex
-                    h-8
-                    w-8
-                    items-center
-                    justify-center
-                    rounded-full
-                    bg-white/15
-                    text-white
-                    backdrop-blur-md
-                    transition-all
-                    duration-300
-                    group-hover:bg-[#D99A18]
-                    group-hover:text-[#071635]
-                  "
-                >
-                  <Camera size={14} />
-                </div>
-
                 {/* CONTENT */}
 
                 <div
@@ -475,8 +466,8 @@ export default function GalleryPage() {
                     absolute
                     inset-x-0
                     bottom-0
-                    p-3.5
-                    sm:p-4
+                    p-2.5
+                    sm:p-3.5
                   "
                 >
 
@@ -507,7 +498,7 @@ export default function GalleryPage() {
 
                   <div
                     className="
-                      mt-2
+                      mt-1.5
                       flex
                       items-center
                       gap-1
@@ -557,11 +548,6 @@ export default function GalleryPage() {
               "
             >
               <div>
-                <Camera
-                  size={28}
-                  className="mx-auto text-[#D99A18]"
-                />
-
                 <h3
                   className="
                     mt-3
@@ -614,7 +600,7 @@ export default function GalleryPage() {
               flex-col
               gap-4
               rounded-[20px]
-              bg-[#071635]
+              bg-[#173A67]
               px-5
               py-6
               sm:flex-row
@@ -720,7 +706,7 @@ export default function GalleryPage() {
             flex
             items-center
             justify-center
-            bg-[#071635]/95
+            bg-[#173A67]/95
             p-3
             backdrop-blur-sm
             sm:p-6
@@ -743,8 +729,8 @@ export default function GalleryPage() {
               top-3
               z-20
               flex
-              h-10
-              w-10
+              h-9
+              w-9
               items-center
               justify-center
               rounded-full
@@ -777,8 +763,8 @@ export default function GalleryPage() {
                 top-1/2
                 z-20
                 flex
-                h-10
-                w-10
+                h-9
+                w-9
                 -translate-y-1/2
                 items-center
                 justify-center
@@ -801,7 +787,7 @@ export default function GalleryPage() {
           <div
             className="
               relative
-              h-[72vh]
+              h-[68vh]
               w-full
               max-w-[1050px]
               overflow-hidden
@@ -881,8 +867,8 @@ export default function GalleryPage() {
                 top-1/2
                 z-20
                 flex
-                h-10
-                w-10
+                h-9
+                w-9
                 -translate-y-1/2
                 items-center
                 justify-center

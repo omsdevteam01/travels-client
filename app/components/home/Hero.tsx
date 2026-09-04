@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { mediaUrl } from "@/lib/media";
 import {
   motion,
   useReducedMotion,
@@ -87,7 +88,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative isolate overflow-hidden bg-[#071635]">
+    <section className="relative isolate overflow-hidden bg-[#143A5E]">
       {/* =========================================================
           MAIN HERO
       ========================================================= */}
@@ -100,7 +101,7 @@ export default function Hero() {
           w-full
           max-w-[1800px]
           overflow-hidden
-          bg-[#071635]
+          bg-[#173A67]
         "
       >
         {/* =======================================================
@@ -121,7 +122,7 @@ export default function Hero() {
           "
         >
           <Image
-            src="/images/hero.png"
+            src={mediaUrl("images/hero.png")}
             alt="South India temple and travel destination"
             fill
             priority
@@ -143,12 +144,12 @@ export default function Hero() {
               absolute
               inset-0
               bg-gradient-to-r
-              from-[#071635]
-              via-[#071635]/78
+              from-[#173A67]
+              via-[#173A67]/78
               via-[8%]
-              via-[#071635]/45
+              via-[#173A67]/45
               via-[20%]
-              via-[#071635]/12
+              via-[#173A67]/12
               via-[34%]
               to-transparent
               to-[58%]
@@ -165,8 +166,8 @@ export default function Hero() {
               left-0
               w-[35%]
               bg-gradient-to-r
-              from-[#071635]/18
-              via-[#071635]/7
+              from-[#173A67]/18
+              via-[#173A67]/7
               to-transparent
             "
           />
@@ -181,8 +182,8 @@ export default function Hero() {
               bottom-0
               h-[38%]
               bg-gradient-to-t
-              from-[#071635]/58
-              via-[#071635]/15
+              from-[#173A67]/58
+              via-[#173A67]/15
               to-transparent
             "
           />
@@ -194,7 +195,7 @@ export default function Hero() {
             className="
               absolute
               inset-0
-              bg-[#071635]/[0.025]
+              bg-[#173A67]/[0.025]
             "
           />
 
@@ -229,15 +230,16 @@ export default function Hero() {
           }}
           className="
             relative
-            h-[30svh]
-            min-h-[270px]
+            h-[32svh]
+            min-h-[230px]
+            max-h-[300px]
             w-full
             overflow-hidden
             lg:hidden
           "
         >
           <Image
-            src="/images/hero.png"
+            src={mediaUrl("images/hero.png")}
             alt="South India temple and travel destination"
             fill
             priority
@@ -262,8 +264,8 @@ export default function Hero() {
               bottom-0
               h-32
               bg-gradient-to-t
-              from-[#071635]/90
-              via-[#071635]/28
+              from-[#173A67]/90
+              via-[#173A67]/28
               to-transparent
             "
           />
@@ -280,7 +282,7 @@ export default function Hero() {
               top-0
               h-20
               bg-gradient-to-b
-              from-[#071635]/18
+              from-[#173A67]/18
               to-transparent
             "
           />
@@ -294,7 +296,7 @@ export default function Hero() {
             className="
               absolute
               inset-0
-              bg-[#071635]/[0.02]
+              bg-[#173A67]/[0.02]
             "
           />
 
@@ -311,7 +313,7 @@ export default function Hero() {
               rounded-full
               border
               border-white/20
-              bg-[#071635]/65
+              bg-[#173A67]/65
               px-3.5
               py-2
               backdrop-blur-md
@@ -338,10 +340,11 @@ export default function Hero() {
             relative
             z-10
             flex
-            min-h-[calc(100svh-76px)]
+            min-h-0
             w-full
-            items-center
+            items-start
             lg:min-h-[calc(100svh-76px)]
+            lg:items-center
           "
         >
           <div
@@ -356,8 +359,8 @@ export default function Hero() {
                 flex
                 h-full
                 items-center
-                px-5
-                py-14
+                px-4
+                py-6
                 sm:px-8
                 sm:py-16
                 md:px-12
@@ -382,8 +385,6 @@ export default function Hero() {
   }}
   className="
     relative
-    -translate-y-4
-
     mb-5
     inline-flex
     items-center
@@ -435,9 +436,9 @@ export default function Hero() {
                   }}
                   className="
                     max-w-[850px]
-                    text-[clamp(3rem,7vw,6.2rem)]
+                    text-[clamp(2.15rem,5.8vw,5rem)] sm:text-[clamp(2.5rem,5.8vw,5rem)]
                     font-black
-                    leading-[0.9]
+                    leading-[0.92]
                     tracking-[-0.055em]
                     text-white
                   "
@@ -465,7 +466,7 @@ export default function Hero() {
                     ease: smoothEase,
                   }}
                   className="
-                    mt-7
+                    mt-5
                     max-w-[650px]
                     text-sm
                     leading-6
@@ -492,11 +493,12 @@ export default function Hero() {
     ease: smoothEase,
   }}
   className="
-    mt-8
-    flex
+    mt-5
+    grid
     w-full
-    flex-col
-    gap-3
+    grid-cols-2
+    gap-2
+    sm:flex
     sm:w-auto
     sm:flex-row
   "
@@ -510,16 +512,16 @@ export default function Hero() {
       relative
       z-20
       inline-flex
-      min-h-[48px]
+      min-h-[40px]
       w-full
       items-center
       justify-center
       gap-2.5
       rounded-xl
       bg-[#D99A18]
-      px-5
-      py-3
-      text-sm
+      px-4
+      py-2.5
+      text-[13px]
       font-bold
       text-[#071635]
       shadow-[0_8px_24px_rgba(0,0,0,0.16)]
@@ -563,17 +565,17 @@ export default function Hero() {
       relative
       z-20
       inline-flex
-      min-h-[48px]
+      min-h-[46px]
       w-full
       items-center
       justify-center
       rounded-xl
       border
       border-white/30
-      bg-[#071635]/80
-      px-5
-      py-3
-      text-sm
+      bg-[#173A67]/80
+      px-4
+      py-2.5
+      text-[13px]
       font-bold
       text-white
       shadow-[0_8px_24px_rgba(0,0,0,0.18)]
@@ -664,7 +666,7 @@ export default function Hero() {
                           rounded-full
                           border
                           border-[#D99A18]/50
-                          bg-[#071635]/40
+                          bg-[#173A67]/40
                         "
                       >
                         {/* SHIELD */}
@@ -790,13 +792,13 @@ export default function Hero() {
                     ease: smoothEase,
                   }}
                   className="
-                    mt-7
+                    mt-5
                     grid
                     grid-cols-4
                     gap-0
                     border-t
                     border-white/10
-                    pt-5
+                    pt-4
                     md:hidden
                   "
                 >
@@ -826,7 +828,7 @@ export default function Hero() {
                           rounded-full
                           border
                           border-[#D99A18]/40
-                          bg-[#071635]/50
+                          bg-[#173A67]/50
                         "
                       >
                         {/* SHIELD */}

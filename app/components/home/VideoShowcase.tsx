@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { ArrowRight, Sparkles } from "lucide-react";
+import { mediaUrl } from "@/lib/media";
 import {
   motion,
   useReducedMotion,
@@ -80,28 +81,28 @@ export default function VideoShowcase() {
     video.muted = true;
     video.playsInline = true;
 
-    const playVideo = async () => {
-      try {
-        video.muted = true;
-        video.playsInline = true;
+    const playVideo = () => {
+      video.muted = true;
+      video.playsInline = true;
 
-        if (video.paused) {
-          await video.play();
-        }
-
-        setIsPlaying(true);
-      } catch {
-        setIsPlaying(false);
-      }
+      video
+        .play()
+        .then(() => {
+          setIsPlaying(true);
+        })
+        .catch(() => {
+          setIsPlaying(false);
+        });
     };
 
-    playVideo();
-
-    video.addEventListener("loadeddata", playVideo);
-    video.addEventListener("canplay", playVideo);
+    // If video is already ready
+    if (video.readyState >= 3) {
+      playVideo();
+    } else {
+      video.addEventListener("canplay", playVideo);
+    }
 
     return () => {
-      video.removeEventListener("loadeddata", playVideo);
       video.removeEventListener("canplay", playVideo);
     };
   }, []);
@@ -117,6 +118,7 @@ export default function VideoShowcase() {
 
     try {
       if (video.paused) {
+        video.muted = true;
         await video.play();
         setIsPlaying(true);
       } else {
@@ -147,6 +149,7 @@ export default function VideoShowcase() {
     <section
       className="
         relative
+        -mt-9
         w-full
         overflow-hidden
         bg-[#F8F5EE]
@@ -250,7 +253,7 @@ export default function VideoShowcase() {
               sm:w-10
 
               lg:w-14
-          "
+            "
           />
 
           <Sparkles
@@ -300,7 +303,7 @@ export default function VideoShowcase() {
             rounded-[18px]
             border
             border-[#D99A18]
-            bg-[#03142F]
+            bg-[#14345E]
             shadow-[0_20px_50px_rgba(7,22,53,0.18)]
 
             sm:rounded-[21px]
@@ -881,7 +884,7 @@ export default function VideoShowcase() {
                 items-center
                 justify-center
                 overflow-hidden
-                bg-[#020D20]
+                bg-[#14345E]
 
                 px-5
                 pb-7
@@ -989,7 +992,7 @@ export default function VideoShowcase() {
                     rounded-[21px]
                     border-[2px]
                     border-[#E7A71E]
-                    bg-[#06152C]
+                    bg-[#14345E]
                     p-[5px]
                     shadow-[0_18px_40px_rgba(0,0,0,0.42)]
 
@@ -1019,7 +1022,7 @@ export default function VideoShowcase() {
                   >
                     <video
                       ref={videoRef}
-                      src="/videos/video.mp4"
+                      src={mediaUrl("videos/video.mp4")}
                       autoPlay
                       muted
                       loop
@@ -1043,24 +1046,6 @@ export default function VideoShowcase() {
                       "
                       onPlay={() => setIsPlaying(true)}
                       onPause={() => setIsPlaying(false)}
-                      onLoadedMetadata={(event) => {
-                        const video = event.currentTarget;
-
-                        video.muted = true;
-                        video.playsInline = true;
-
-                        video.play().catch(() => {});
-                      }}
-                      onCanPlay={(event) => {
-                        const video = event.currentTarget;
-
-                        video.muted = true;
-                        video.playsInline = true;
-
-                        if (video.paused) {
-                          video.play().catch(() => {});
-                        }
-                      }}
                     />
 
                     {/* =================================================
@@ -1239,7 +1224,7 @@ export default function VideoShowcase() {
                       rounded-full
                       border-[3px]
                       border-[#E7A71E]
-                      bg-[#06152F]
+                      bg-[#14345E]
                       shadow-[0_12px_28px_rgba(0,0,0,0.42)]
 
                       xl:h-[104px]

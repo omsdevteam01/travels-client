@@ -53,6 +53,24 @@ const benefits = [
 ];
 
 /* =========================================================
+   CONTACT DETAILS — FROM .env
+========================================================= */
+
+const phone1 = process.env.NEXT_PUBLIC_PHONE_1 || "";
+const phone2 = process.env.NEXT_PUBLIC_PHONE_2 || "";
+const officePhone = process.env.NEXT_PUBLIC_OFFICE_PHONE || "";
+
+const locations = [
+  process.env.NEXT_PUBLIC_LOCATION_1,
+  process.env.NEXT_PUBLIC_LOCATION_2,
+  process.env.NEXT_PUBLIC_LOCATION_3,
+  process.env.NEXT_PUBLIC_LOCATION_4,
+].filter(Boolean).join(" • ");
+
+const officeAddress =
+  process.env.NEXT_PUBLIC_OFFICE_ADDRESS || "";
+
+/* =========================================================
    ANIMATION
 ========================================================= */
 
@@ -289,7 +307,7 @@ export default function BookingCTA() {
             relative
             overflow-hidden
             rounded-[18px]
-            bg-[#0B1F4D]
+            bg-[#143A5E]
             shadow-[0_18px_50px_rgba(7,22,53,0.12)]
 
             sm:rounded-[24px]
@@ -638,7 +656,7 @@ export default function BookingCTA() {
                   max-w-[620px]
                   text-[10.5px]
                   leading-[1.7]
-                  text-white/50
+                  text-white/70
 
                   sm:mt-5
                   sm:text-xs
@@ -726,7 +744,7 @@ export default function BookingCTA() {
                         text-[9px]
                         font-medium
                         leading-4
-                        text-white/55
+                        text-white/70
 
                         sm:text-[10px]
 
@@ -863,8 +881,8 @@ export default function BookingCTA() {
                   "
                 >
                   <a
-                    href="tel:+910000000000"
-                    aria-label="Call Us"
+                    href={`tel:${phone1}`}
+                    aria-label={`Call Baiya Travels: ${phone1}, ${phone2}, ${officePhone}`}
                     className="
                       group
                       relative
@@ -879,7 +897,7 @@ export default function BookingCTA() {
                       whitespace-nowrap
                       rounded-full
                       border
-                      border-white/50
+                      border-white/70
                       bg-white/10
                       px-5
                       py-3
@@ -930,7 +948,7 @@ export default function BookingCTA() {
                         group-hover:text-[#0B1F4D]
                       "
                     >
-                      Call Us
+                      {phone1}
                     </span>
                   </a>
                 </motion.div>
@@ -1049,7 +1067,7 @@ export default function BookingCTA() {
                     max-w-[430px]
                     text-[9px]
                     leading-4
-                    text-white/35
+                    text-white/60
 
                     sm:text-[10px]
                     sm:leading-5
@@ -1188,7 +1206,7 @@ export default function BookingCTA() {
                                 truncate
                                 text-[8.5px]
                                 leading-4
-                                text-white/35
+                                text-white/60
 
                                 sm:text-[10px]
                               "
@@ -1209,7 +1227,7 @@ export default function BookingCTA() {
                               justify-center
                               rounded-full
                               bg-white/[0.04]
-                              text-white/25
+                              text-white/70
                               transition-all
                               duration-300
 
@@ -1312,7 +1330,7 @@ export default function BookingCTA() {
                         sm:text-[11px]
                       "
                     >
-                      South India
+                      {locations}
                     </p>
 
                     <p
@@ -1320,17 +1338,29 @@ export default function BookingCTA() {
                         mt-0.5
                         text-[8px]
                         leading-4
-                        text-white/35
+                        text-white/60
 
                         sm:text-[9px]
                         sm:leading-5
                       "
                     >
-                      Tour, pilgrimage and group travel
-                      arrangements.
+                      {officeAddress}
                     </p>
                   </div>
                 </motion.div>
+
+                <p
+                  className="
+                    mt-2
+                    text-[8px]
+                    font-medium
+                    leading-4
+                    text-white/55
+                    sm:text-[9px]
+                  "
+                >
+                  {phone2} • Office: {officePhone}
+                </p>
               </div>
             </motion.div>
           </div>

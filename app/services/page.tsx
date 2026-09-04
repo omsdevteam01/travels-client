@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import {
   ArrowRight,
@@ -9,7 +10,6 @@ import {
   CalendarCheck,
   Check,
   ChefHat,
-  Church,
   Compass,
   Hotel,
   MapPinned,
@@ -20,6 +20,49 @@ import {
   Award,
 } from "lucide-react";
 
+const TempleIcon = ({
+  size = 24,
+  className = "",
+}: {
+  size?: number;
+  className?: string;
+}) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 64 64"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+    className={className}
+  >
+    <g
+      stroke="currentColor"
+      strokeWidth="2.4"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M32 7V3" />
+      <path d="M29 7H35" />
+      <path d="M27 11H37L32 7L27 11Z" />
+      <path d="M24 16H40L32 11L24 16Z" />
+      <path d="M21 21H43L32 16L21 21Z" />
+      <path d="M18 27H46L32 21L18 27Z" />
+      <path d="M15 33H49L32 27L15 33Z" />
+      <path d="M12 39H52L32 33L12 39Z" />
+      <path d="M9 45H55L32 39L9 45Z" />
+      <path d="M5 52H59" />
+      <path d="M9 52V59" />
+      <path d="M55 52V59" />
+      <path d="M18 45V59" />
+      <path d="M46 45V59" />
+      <path d="M25 59V48H39V59" />
+      <path d="M3 59H61" />
+    </g>
+  </svg>
+);
+
+
 const services = [
   {
     slug: "south-india-tours",
@@ -27,7 +70,7 @@ const services = [
     description:
       "Explore South India with thoughtfully arranged travel plans designed for families, individuals and groups.",
     icon: Compass,
-    image: "/images/services/tour.jpg",
+    image: "/images/services/tour1.png",
     features: [
       "Family tours",
       "Group tours",
@@ -41,7 +84,7 @@ const services = [
     description:
       "Arrange suitable vehicles for local travel, long-distance journeys, family trips and group transportation.",
     icon: BusFront,
-    image: "/images/services/vehicle.jpg",
+    image: "/images/services/vehicle.png",
     features: [
       "Cars & vans",
       "Group transportation",
@@ -55,7 +98,7 @@ const services = [
     description:
       "Help arrange comfortable accommodation for individuals, families and larger groups during their journey.",
     icon: Hotel,
-    image: "/images/services/accommodation.jpg",
+    image: "/images/services/room.png",
     features: [
       "Room arrangements",
       "Group accommodation",
@@ -69,7 +112,7 @@ const services = [
     description:
       "Coordinate suitable halls and spaces for gatherings, religious programmes, meetings and group events.",
     icon: Building2,
-    image: "/images/services/hall.jpg",
+    image: "/images/services/hall.png",
     features: [
       "Hall booking support",
       "Group gatherings",
@@ -83,7 +126,7 @@ const services = [
     description:
       "Support for organised food and kitchen requirements during group stays, gatherings and programmes.",
     icon: ChefHat,
-    image: "/images/services/kitchen.jpg",
+    image: "/images/services/kitchen.png",
     features: [
       "Kitchen arrangements",
       "Group requirements",
@@ -97,7 +140,7 @@ const services = [
     description:
       "Travel and facility coordination for religious gatherings, spiritual programmes and community events.",
     icon: Sparkles,
-    image: "/images/services/religious.jpg",
+    image: "/images/services/program.png",
     features: [
       "Religious gatherings",
       "Travel arrangements",
@@ -110,8 +153,8 @@ const services = [
     title: "Pilgrimage Travel",
     description:
       "Travel support for pilgrimage journeys, spiritual visits and religious groups with organised arrangements.",
-    icon: Church,
-    image: "/images/services/pilgrimage.jpg",
+    icon: TempleIcon,
+    image: "/images/services/temple.png",
     features: [
       "Pilgrimage trips",
       "Group travel",
@@ -125,7 +168,7 @@ const services = [
     description:
       "Complete arrangements for family functions, celebrations, community events and special gatherings.",
     icon: Users,
-    image: "/images/services/special.jpg",
+    image: "/images/services/special.png",
     features: [
       "Family functions",
       "Event arrangements",
@@ -183,15 +226,30 @@ const stats = [
 
 export default function ServicesPage() {
   const shouldReduceMotion = useReducedMotion();
+  const [selectedService, setSelectedService] = useState<
+    (typeof services)[number] | null
+  >(null);
+
+  const regularServices = services.filter(
+    (service) =>
+      service.slug !== "religious-programmes" &&
+      service.slug !== "pilgrimage-travel"
+  );
+
+  const religiousServices = services.filter(
+    (service) =>
+      service.slug === "religious-programmes" ||
+      service.slug === "pilgrimage-travel"
+  );
 
   return (
-    <main className="min-h-screen overflow-x-hidden bg-[#F7F3E8] text-[#071635]">
+    <main className="min-h-screen overflow-x-hidden bg-[#F7F3E8] text-[#173A67]">
 
       {/* =====================================================
           HERO
       ====================================================== */}
 
-      <section className="relative overflow-hidden bg-[#031222]">
+      <section className="relative overflow-hidden bg-[#173A67]">
 
         {/* Decorative curves */}
 
@@ -483,7 +541,7 @@ export default function ServicesPage() {
                     py-3
                     text-xs
                     font-bold
-                    text-[#071635]
+                    text-[#173A67]
                     transition-all
                     duration-300
                     hover:-translate-y-1
@@ -501,7 +559,7 @@ export default function ServicesPage() {
                       items-center
                       justify-center
                       rounded-full
-                      bg-[#071635]
+                      bg-[#143A5E]
                       text-white
                       transition-transform
                       duration-300
@@ -581,7 +639,7 @@ export default function ServicesPage() {
                   "
                 >
                   <img
-                    src="/images/services/tour.jpg"
+                    src="/images/services/tour.png"
                     alt="South India travel"
                     className="
                       h-full
@@ -598,7 +656,7 @@ export default function ServicesPage() {
                       absolute
                       inset-0
                       bg-gradient-to-t
-                      from-[#031222]/75
+                      from-[#173A67]/75
                       via-transparent
                       to-transparent
                     "
@@ -644,14 +702,14 @@ export default function ServicesPage() {
                       relative
                       h-[155px]
                       overflow-hidden
-                      rounded-[18px]
+                      rounded-[16px]
                       border
                       border-[#D99A18]/30
                       sm:h-[210px]
                     "
                   >
                     <img
-                      src="/images/services/pilgrimage.jpg"
+                      src="/images/services/temp.png"
                       alt="Pilgrimage travel"
                       className="
                         h-full
@@ -663,9 +721,9 @@ export default function ServicesPage() {
                       "
                     />
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#031222]/70 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#173A67]/70 to-transparent" />
 
-                    <Church
+                    <TempleIcon
                       size={20}
                       className="
                         absolute
@@ -700,7 +758,7 @@ export default function ServicesPage() {
                     "
                   >
                     <img
-                      src="/images/services/accommodation.jpg"
+                      src="/images/services/room.png"
                       alt="Accommodation"
                       className="
                         h-full
@@ -712,7 +770,7 @@ export default function ServicesPage() {
                       "
                     />
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#031222]/70 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#173A67]/70 to-transparent" />
 
                     <Hotel
                       size={20}
@@ -756,7 +814,7 @@ export default function ServicesPage() {
                   "
                 >
                   <img
-                    src="/images/services/religious.jpg"
+                    src="/images/services/car.png"
                     alt="Religious programme"
                     className="
                       h-full
@@ -768,7 +826,7 @@ export default function ServicesPage() {
                     "
                   />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#031222]/80 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#173A67]/80 via-transparent to-transparent" />
 
                   <div className="absolute bottom-4 left-4">
                     <Sparkles
@@ -834,7 +892,7 @@ export default function ServicesPage() {
               overflow-hidden
               rounded-[20px]
               border
-              border-[#071635]/10
+              border-[#173A67]/10
               bg-white
               shadow-[0_15px_45px_rgba(7,22,53,0.08)]
               sm:grid-cols-2
@@ -874,7 +932,7 @@ export default function ServicesPage() {
                     items-center
                     gap-3
                     border-b
-                    border-[#071635]/8
+                    border-[#173A67]/8
                     px-4
                     py-5
                     transition-colors
@@ -907,7 +965,7 @@ export default function ServicesPage() {
                       items-center
                       justify-center
                       rounded-full
-                      bg-[#071635]
+                      bg-[#143A5E]
                       text-[#F0C45C]
                       transition-all
                       duration-300
@@ -915,11 +973,11 @@ export default function ServicesPage() {
                       group-hover:text-white
                     "
                   >
-                    <Icon size={18} />
+                    <Icon size={15} className="sm:h-[18px] sm:w-[18px]" />
                   </motion.div>
 
                   <div>
-                    <h3 className="text-xs font-bold text-[#071635]">
+                    <h3 className="text-xs font-bold text-[#143A5E]">
                       {item.title}
                     </h3>
 
@@ -928,7 +986,7 @@ export default function ServicesPage() {
                         mt-1
                         text-[9px]
                         leading-4
-                        text-[#071635]/50
+                        text-[#173A67]/50
                       "
                     >
                       {item.text}
@@ -1030,7 +1088,7 @@ export default function ServicesPage() {
                   font-medium
                   leading-tight
                   tracking-[-0.03em]
-                  text-[#071635]
+                  text-[#173A67]
                   sm:text-4xl
                   lg:text-5xl
                 "
@@ -1071,7 +1129,7 @@ export default function ServicesPage() {
                   max-w-md
                   text-xs
                   leading-6
-                  text-[#071635]/55
+                  text-[#173A67]/55
                   lg:ml-auto
                   sm:text-sm
                   sm:leading-7
@@ -1087,6 +1145,218 @@ export default function ServicesPage() {
             </motion.div>
 
           </div>
+
+      {/* =====================================================
+          SPIRITUAL SERVICES
+      ====================================================== */}
+
+      <section className="relative overflow-hidden bg-[#173A67]">
+        <div
+          aria-hidden="true"
+          className="
+            pointer-events-none
+            absolute
+            -right-24
+            -top-24
+            h-72
+            w-72
+            rounded-full
+            border-[35px]
+            border-[#D99A18]/10
+          "
+        />
+
+        <div
+          aria-hidden="true"
+          className="
+            pointer-events-none
+            absolute
+            -bottom-28
+            -left-20
+            h-64
+            w-64
+            rounded-full
+            border-[28px]
+            border-white/5
+          "
+        />
+
+        <div
+          className="
+            relative
+            mx-auto
+            w-full
+            max-w-[1240px]
+            px-4
+            py-9
+            sm:px-6
+            sm:py-11
+            lg:px-8
+            lg:py-12
+          "
+        >
+          <motion.div
+            initial={
+              shouldReduceMotion
+                ? false
+                : {
+                    opacity: 0,
+                    y: 20,
+                  }
+            }
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            viewport={{
+              once: true,
+              amount: 0.15,
+            }}
+            transition={{
+              duration: 0.7,
+            }}
+            className="max-w-xl"
+          >
+            <div className="flex items-center gap-2 text-[9px] font-bold uppercase tracking-[0.2em] text-[#F0C45C]">
+              <span className="h-px w-7 bg-[#D99A18]" />
+              Spiritual Services
+              <TempleIcon size={11} />
+            </div>
+
+            <h2 className="mt-2.5 font-serif text-2xl font-medium leading-tight tracking-[-0.03em] text-white sm:text-3xl lg:text-4xl">
+              Spiritual Services
+              <span className="block text-[#D99A18]">
+                With Care &amp; Respect
+              </span>
+            </h2>
+
+            <p className="mt-3 max-w-lg text-[10px] leading-5 text-white/55 sm:text-xs sm:leading-6">
+              Thoughtfully coordinated travel, venues and group support for
+              spiritual programmes, pilgrimage journeys and religious occasions.
+            </p>
+          </motion.div>
+
+          <div className="mx-auto mt-6 grid w-full max-w-[1080px] gap-4 md:grid-cols-2 md:gap-4">
+            {religiousServices.map((service, index) => {
+              const Icon = service.icon;
+
+              return (
+                <motion.article
+                  key={service.slug}
+                  initial={
+                    shouldReduceMotion
+                      ? false
+                      : {
+                          opacity: 0,
+                          y: 35,
+                        }
+                  }
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  viewport={{
+                    once: true,
+                    amount: 0.15,
+                  }}
+                  transition={{
+                    duration: 0.65,
+                    delay: index * 0.1,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  whileHover={
+                    shouldReduceMotion
+                      ? undefined
+                      : {
+                          y: -6,
+                        }
+                  }
+                  role="link"
+                  tabIndex={0}
+                  aria-label={`View details about ${service.title}`}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                      event.preventDefault();
+                      window.location.href = `/services/${service.slug}`;
+                    }
+                  }}
+                  className="
+                    group
+                    cursor-pointer
+                    overflow-hidden
+                    rounded-[16px]
+                    border
+                    border-white/10
+                    bg-white/[0.06]
+                    transition-all
+                    duration-300
+                    hover:border-[#D99A18]/45
+                    hover:bg-white/[0.09]
+                    hover:shadow-[0_20px_50px_rgba(0,0,0,0.2)]
+                  "
+                >
+                  <div className="grid sm:grid-cols-[0.72fr_1.28fr]">
+                    <div className="relative h-[150px] overflow-hidden sm:h-full sm:min-h-[200px]">
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#173A67]/75 via-transparent to-transparent" />
+
+                      <div className="absolute bottom-3 left-3 flex h-8 w-8 items-center justify-center rounded-full border border-[#D99A18] bg-[#173A67]/90 text-[#F0C45C]">
+                        <Icon size={14} />
+                      </div>
+                    </div>
+
+                    <div className="p-4 sm:p-5">
+                      <span className="text-[8px] font-bold uppercase tracking-[0.18em] text-[#F0C45C]">
+                        Spiritual Service
+                      </span>
+
+                      <h3 className="mt-1.5 text-base font-extrabold leading-tight tracking-[-0.025em] text-white sm:text-lg">
+                        {service.title}
+                      </h3>
+
+                      <p className="mt-2 text-[9px] leading-4.5 text-white/55 sm:text-[10px] sm:leading-5">
+                        {service.description}
+                      </p>
+
+                      <div className="mt-3 space-y-1.5 border-t border-white/10 pt-3">
+                        {service.features.map((feature) => (
+                          <div
+                            key={feature}
+                            className="flex items-center gap-1.5 text-[8px] font-medium text-white/65 sm:text-[9px]"
+                          >
+                            <Check
+                              size={10}
+                              className="shrink-0 text-[#D99A18]"
+                            />
+                            {feature}
+                          </div>
+                        ))}
+                      </div>
+
+                      <Link
+                        href={`/services/${service.slug}`}
+                        className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#D99A18] px-4 py-2 text-[9px] font-bold text-[#173A67] shadow-[0_6px_18px_rgba(217,154,24,0.22)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#F0C45C] hover:shadow-[0_10px_24px_rgba(217,154,24,0.3)]"
+                        onClick={(event) => event.stopPropagation()}
+                      >
+                        View Service Details
+                        <ArrowRight
+                          size={11}
+                          className="transition-transform duration-300 group-hover:translate-x-1"
+                        />
+                      </Link>
+                    </div>
+                  </div>
+                </motion.article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
 
           {/* =================================================
               SERVICE GRID
@@ -1108,16 +1378,22 @@ export default function ServicesPage() {
               },
             }}
             className="
-              mt-8
+              mx-auto
+              mt-7
               grid
+              w-full
+              max-w-[1080px]
               grid-cols-1
+              justify-items-center
               gap-4
               sm:grid-cols-2
-              lg:grid-cols-4
+              lg:grid-cols-3
+              lg:gap-x-5
+              lg:gap-y-5
             "
           >
 
-            {services.map((service, index) => {
+            {regularServices.map((service, index) => {
               const Icon = service.icon;
 
               return (
@@ -1147,13 +1423,25 @@ export default function ServicesPage() {
                           scale: 1.015,
                         }
                   }
+                  role="link"
+                  tabIndex={0}
+                  aria-label={`View details about ${service.title}`}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                      event.preventDefault();
+                      window.location.href = `/services/${service.slug}`;
+                    }
+                  }}
                   className="
                     group
                     relative
+                    w-full
+                    max-w-[310px]
+                    cursor-pointer
                     overflow-hidden
                     rounded-[18px]
                     border
-                    border-[#071635]/10
+                    border-[#173A67]/10
                     bg-white
                     shadow-[0_6px_20px_rgba(7,22,53,0.04)]
                     transition-shadow
@@ -1197,7 +1485,7 @@ export default function ServicesPage() {
 
                   {/* IMAGE */}
 
-                  <div className="relative h-[185px] overflow-hidden bg-[#F7F3E8] sm:h-[195px]">
+                  <div className="relative h-[155px] overflow-hidden bg-[#F7F3E8] sm:h-[165px] lg:h-[170px]">
 
                     <motion.img
                       src={service.image}
@@ -1225,8 +1513,7 @@ export default function ServicesPage() {
                       className="
                         h-full
                         w-full
-                        object-contain
-                        p-2
+                        object-cover
                         transition-transform
                         duration-700
                         group-hover:scale-[1.05]
@@ -1238,7 +1525,7 @@ export default function ServicesPage() {
                         absolute
                         inset-0
                         bg-gradient-to-t
-                        from-[#071635]/65
+                        from-[#173A67]/65
                         via-transparent
                         to-transparent
                       "
@@ -1282,17 +1569,21 @@ export default function ServicesPage() {
                       }
                       className="
                         absolute
-                        bottom-3
-                        left-4
+                        bottom-2.5
+                        left-3
                         flex
-                        h-11
-                        w-11
+                        h-9
+                        w-9
+                        sm:bottom-3
+                        sm:left-4
+                        sm:h-11
+                        sm:w-11
                         items-center
                         justify-center
                         rounded-full
                         border-2
                         border-[#D99A18]
-                        bg-[#071635]
+                        bg-[#143A5E]
                         text-[#F0C45C]
                         shadow-lg
                         transition-colors
@@ -1308,7 +1599,7 @@ export default function ServicesPage() {
 
                   {/* CARD CONTENT */}
 
-                  <div className="p-4 pt-5">
+                  <div className="p-3 pt-3 sm:p-4 sm:pt-4">
 
                     <motion.h3
                       initial={
@@ -1332,11 +1623,12 @@ export default function ServicesPage() {
                         delay: index * 0.07 + 0.15,
                       }}
                       className="
-                        text-[17px]
+                        text-[15px]
                         font-extrabold
+                        sm:text-[17px]
                         leading-tight
                         tracking-[-0.025em]
-                        text-[#071635]
+                        text-[#173A67]
                       "
                     >
                       {service.title}
@@ -1344,11 +1636,15 @@ export default function ServicesPage() {
 
                     <p
                       className="
-                        mt-2
-                        min-h-[60px]
-                        text-[10px]
-                        leading-5
-                        text-[#071635]/55
+                        mt-1.5
+                        min-h-0
+                        text-[9px]
+                        leading-4
+                        sm:mt-2
+                        sm:min-h-[50px]
+                        sm:text-[10px]
+                        sm:leading-5
+                        text-[#173A67]/55
                         sm:text-[11px]
                       "
                     >
@@ -1357,11 +1653,13 @@ export default function ServicesPage() {
 
                     <div
                       className="
-                        mt-3
-                        space-y-1.5
+                        mt-2
+                        space-y-1
+                        sm:mt-2.5
+                        sm:space-y-1.5
                         border-t
-                        border-[#071635]/8
-                        pt-3
+                        border-[#173A67]/8
+                        pt-2.5
                       "
                     >
 
@@ -1394,10 +1692,12 @@ export default function ServicesPage() {
                           className="
                             flex
                             items-center
-                            gap-2
-                            text-[9px]
+                            gap-1.5
+                            text-[8px]
+                            sm:gap-2
+                            sm:text-[9px]
                             font-medium
-                            text-[#071635]/60
+                            text-[#173A67]/60
                           "
                         >
                           <Check
@@ -1417,17 +1717,28 @@ export default function ServicesPage() {
                       href={`/services/${service.slug}`}
                       className="
                         group/link
-                        mt-4
+                        mt-3
                         inline-flex
                         items-center
-                        gap-1.5
-                        text-[10px]
+                        gap-1
+                        rounded-full
+                        bg-[#D99A18]
+                        px-3
+                        py-1.5
+                        text-[8px]
                         font-bold
-                        text-[#071635]
-                        transition-colors
+                        text-[#173A67]
+                        shadow-[0_5px_15px_rgba(217,154,24,0.16)]
+                        transition-all
                         duration-300
-                        hover:text-[#D99A18]
-                      "
+                        hover:-translate-y-0.5
+                        hover:bg-[#F0C45C]
+                        hover:shadow-[0_10px_24px_rgba(217,154,24,0.28)]
+                        sm:mt-4
+                        sm:gap-1.5
+                        sm:px-4
+                        sm:py-2
+                        sm:text-[10px]"
                     >
                       Learn More
 
@@ -1480,6 +1791,162 @@ export default function ServicesPage() {
       </section>
 
       {/* =====================================================
+          SELECTED SERVICE DETAILS
+      ====================================================== */}
+
+      {selectedService && (
+        <section
+          id="service-details"
+          className="bg-white scroll-mt-20"
+        >
+          <div
+            className="
+              mx-auto
+              w-full
+              max-w-[1240px]
+              px-4
+              py-12
+              sm:px-6
+              sm:py-16
+              lg:px-8
+              lg:py-18
+            "
+          >
+            <motion.div
+              initial={
+                shouldReduceMotion
+                  ? false
+                  : {
+                      opacity: 0,
+                      y: 25,
+                    }
+              }
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{
+                duration: 0.65,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              className="
+                relative
+                overflow-hidden
+                rounded-[22px]
+                border
+                border-[#173A67]/10
+                bg-[#F7F3E8]
+                shadow-[0_18px_50px_rgba(7,22,53,0.08)]
+              "
+            >
+              <div className="grid lg:grid-cols-[0.9fr_1.1fr]">
+                <div className="relative min-h-[260px] overflow-hidden sm:min-h-[340px] lg:min-h-full">
+                  <img
+                    src={selectedService.image}
+                    alt={selectedService.title}
+                    className="h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#173A67]/70 via-transparent to-transparent" />
+
+                  <div className="absolute bottom-5 left-5">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-full border-2 border-[#D99A18] bg-[#173A67] text-[#F0C45C] shadow-lg">
+                      <selectedService.icon size={19} />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-6 sm:p-8 lg:p-10">
+                  <div className="flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-2 text-[9px] font-bold uppercase tracking-[0.2em] text-[#D99A18]">
+                      <span className="h-px w-7 bg-[#D99A18]" />
+                      About This Service
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() => setSelectedService(null)}
+                      className="
+                        shrink-0
+                        rounded-full
+                        border
+                        border-[#173A67]/10
+                        px-3
+                        py-1.5
+                        text-[9px]
+                        font-bold
+                        text-[#173A67]/60
+                        transition-all
+                        hover:border-[#D99A18]
+                        hover:text-[#173A67]
+                      "
+                    >
+                      Close
+                    </button>
+                  </div>
+
+                  <h2 className="mt-4 font-serif text-3xl font-medium leading-tight tracking-[-0.03em] text-[#173A67] sm:text-4xl">
+                    {selectedService.title}
+                  </h2>
+
+                  <p className="mt-4 max-w-2xl text-xs leading-6 text-[#173A67]/60 sm:text-sm sm:leading-7">
+                    {selectedService.description}
+                  </p>
+
+                  <div className="mt-6 border-t border-[#173A67]/10 pt-5">
+                    <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-[#D99A18]">
+                      What We Arrange
+                    </p>
+
+                    <div className="mt-3 grid gap-2 sm:grid-cols-2">
+                      {selectedService.features.map((feature) => (
+                        <div
+                          key={feature}
+                          className="flex items-center gap-2 text-[10px] font-medium text-[#173A67]/65 sm:text-xs"
+                        >
+                          <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#173A67] text-[#F0C45C]">
+                            <Check size={10} />
+                          </span>
+                          {feature}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <Link
+                    href="/contact"
+                    className="
+                      group
+                      mt-7
+                      inline-flex
+                      items-center
+                      gap-3
+                      rounded-full
+                      bg-[#D99A18]
+                      px-5
+                      py-3
+                      text-xs
+                      font-bold
+                      text-[#173A67]
+                      transition-all
+                      duration-300
+                      hover:-translate-y-1
+                      hover:bg-[#F0C45C]
+                      hover:shadow-[0_12px_30px_rgba(217,154,24,0.25)]
+                    "
+                  >
+                    Plan This Service
+                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#173A67] text-white transition-transform duration-300 group-hover:translate-x-1">
+                      <ArrowRight size={13} />
+                    </span>
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+      )}
+
+      {/* =====================================================
           HOW WE ARRANGE
       ====================================================== */}
 
@@ -1502,9 +1969,10 @@ export default function ServicesPage() {
           <div
             className="
               grid
-              gap-8
+              gap-6
               lg:grid-cols-[0.8fr_1.2fr]
               lg:items-center
+              lg:gap-7
             "
           >
 
@@ -1558,7 +2026,7 @@ export default function ServicesPage() {
                   font-medium
                   leading-tight
                   tracking-[-0.03em]
-                  text-[#071635]
+                  text-[#173A67]
                   sm:text-4xl
                 "
               >
@@ -1574,7 +2042,7 @@ export default function ServicesPage() {
                   max-w-md
                   text-xs
                   leading-6
-                  text-[#071635]/55
+                  text-[#173A67]/55
                   sm:text-sm
                   sm:leading-7
                 "
@@ -1594,7 +2062,7 @@ export default function ServicesPage() {
                   gap-2
                   text-xs
                   font-bold
-                  text-[#071635]
+                  text-[#173A67]
                   transition-colors
                   hover:text-[#D99A18]
                 "
@@ -1615,35 +2083,32 @@ export default function ServicesPage() {
 
             {/* STEPS */}
 
-            <div className="grid gap-3 sm:grid-cols-3">
+            <div className="grid grid-cols-1 gap-2 sm:grid-cols-3 sm:gap-3">
 
               {[
                 {
-                  number: "01",
                   title: "Tell Us",
                   text: "Share your travel or group requirements.",
                 },
                 {
-                  number: "02",
                   title: "We Arrange",
                   text: "We coordinate the services you need.",
                 },
                 {
-                  number: "03",
                   title: "Travel",
                   text: "Enjoy a more organised journey.",
                 },
               ].map((step, index) => (
 
                 <motion.div
-                  key={step.number}
+                  key={step.title}
                   initial={
                     shouldReduceMotion
                       ? false
                       : {
                           opacity: 0,
-                          y: 25,
-                          scale: 0.96,
+                          y: 18,
+                          scale: 0.98,
                         }
                   }
                   whileInView={{
@@ -1653,93 +2118,47 @@ export default function ServicesPage() {
                   }}
                   viewport={{
                     once: true,
-                    amount: 0.2,
+                    amount: 0.15,
                   }}
                   transition={{
-                    duration: 0.55,
-                    delay: index * 0.1,
+                    duration: 0.45,
+                    delay: index * 0.07,
                   }}
                   whileHover={
                     shouldReduceMotion
                       ? undefined
                       : {
-                          y: -5,
+                          y: -3,
                         }
                   }
                   className="
                     group
-                    rounded-[16px]
+                    min-w-0
+                    rounded-[12px]
                     border
-                    border-[#071635]/8
+                    border-[#173A67]/8
                     bg-[#F7F3E8]
-                    p-4
+                    px-3.5
+                    py-3
+                    shadow-[0_4px_14px_rgba(7,22,53,0.035)]
                     transition-all
                     duration-300
-                    hover:border-[#D99A18]/30
+                    hover:border-[#D99A18]/35
                     hover:bg-white
-                    hover:shadow-lg
+                    hover:shadow-[0_8px_22px_rgba(7,22,53,0.07)]
+                    sm:rounded-[14px]
+                    sm:px-4
+                    sm:py-3.5
                   "
                 >
-
-                  <span
-                    className="
-                      text-[9px]
-                      font-extrabold
-                      tracking-[0.15em]
-                      text-[#D99A18]
-                    "
-                  >
-                    {step.number}
-                  </span>
-
-                  <motion.div
-                    whileHover={
-                      shouldReduceMotion
-                        ? undefined
-                        : {
-                            rotate: 8,
-                            scale: 1.08,
-                          }
-                    }
-                    className="
-                      mt-4
-                      flex
-                      h-9
-                      w-9
-                      items-center
-                      justify-center
-                      rounded-full
-                      bg-[#071635]
-                      text-[#F0C45C]
-                    "
-                  >
-                    <Check size={15} />
-                  </motion.div>
-
-                  <h3
-                    className="
-                      mt-4
-                      text-sm
-                      font-extrabold
-                      text-[#071635]
-                    "
-                  >
+                  <h3 className="text-[11px] font-extrabold leading-tight text-[#173A67] sm:text-xs">
                     {step.title}
                   </h3>
 
-                  <p
-                    className="
-                      mt-1.5
-                      text-[10px]
-                      leading-5
-                      text-[#071635]/50
-                    "
-                  >
+                  <p className="mt-1 text-[9px] leading-4 text-[#173A67]/50 sm:text-[10px] sm:leading-4.5">
                     {step.text}
                   </p>
-
                 </motion.div>
-
               ))}
 
             </div>
@@ -1753,7 +2172,7 @@ export default function ServicesPage() {
           STATISTICS
       ====================================================== */}
 
-      <section className="bg-[#031222]">
+      <section className="bg-[#143A5E]">
 
         <div
           className="
@@ -1988,7 +2407,7 @@ export default function ServicesPage() {
               relative
               overflow-hidden
               rounded-[22px]
-              bg-[#071635]
+              bg-[#143A5E]
               px-5
               py-9
               text-center
@@ -2113,7 +2532,7 @@ export default function ServicesPage() {
                   py-3
                   text-xs
                   font-bold
-                  text-[#071635]
+                  text-[#173A67]
                   transition-all
                   duration-300
                   hover:-translate-y-1
@@ -2131,7 +2550,7 @@ export default function ServicesPage() {
                     items-center
                     justify-center
                     rounded-full
-                    bg-[#071635]
+                    bg-[#143A5E]
                     text-white
                     transition-transform
                     duration-300

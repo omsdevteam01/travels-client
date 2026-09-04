@@ -12,11 +12,62 @@ import {
 } from "lucide-react";
 
 export default function ContactPage() {
+  const phone1 = process.env.NEXT_PUBLIC_PHONE_1 ?? "";
+  const phone2 = process.env.NEXT_PUBLIC_PHONE_2 ?? "";
+  const officePhone = process.env.NEXT_PUBLIC_OFFICE_PHONE ?? "";
+  const email = process.env.NEXT_PUBLIC_EMAIL ?? "";
+  const location1 = process.env.NEXT_PUBLIC_LOCATION_1 ?? "";
+  const location2 = process.env.NEXT_PUBLIC_LOCATION_2 ?? "";
+  const location3 = process.env.NEXT_PUBLIC_LOCATION_3 ?? "";
+  const location4 = process.env.NEXT_PUBLIC_LOCATION_4 ?? "";
+  const officeAddress = process.env.NEXT_PUBLIC_OFFICE_ADDRESS ?? "";
+  const workingDays = process.env.NEXT_PUBLIC_WORKING_DAYS ?? "";
+  const workingHours = process.env.NEXT_PUBLIC_WORKING_HOURS ?? "";
+
+  const shouldUseWhatsApp = phone1.replace(/\D/g, "");
+
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+
+    const formData = new FormData(e.currentTarget);
+
+    const name = String(formData.get("name") || "").trim();
+    const phone = String(formData.get("phone") || "").trim();
+    const email = String(formData.get("email") || "").trim();
+    const service = String(formData.get("service") || "").trim();
+    const destination = String(formData.get("destination") || "").trim();
+    const people = String(formData.get("people") || "").trim();
+    const message = String(formData.get("message") || "").trim();
+
+    const whatsappMessage = [
+      "Hello Baiya Travels,",
+      "",
+      "I would like to make an enquiry.",
+      "",
+      `Name: ${name}`,
+      `Phone: ${phone}`,
+      email ? `Email: ${email}` : "",
+      `Service: ${service}`,
+      destination ? `Destination: ${destination}` : "",
+      people ? `Number of people: ${people}` : "",
+      "",
+      `Message: ${message}`,
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    const whatsappUrl = `https://wa.me/${shouldUseWhatsApp}?text=${encodeURIComponent(
+      whatsappMessage,
+    )}`;
+
+    // Clear the form/state before leaving for WhatsApp so the enquiry
+    // details are refreshed when the user returns to this page.
+    e.currentTarget.reset();
+    setSubmitted(false);
+
+    window.location.href = whatsappUrl;
   };
 
   return (
@@ -26,7 +77,7 @@ export default function ContactPage() {
           HERO
       ====================================================== */}
 
-      <section className="relative overflow-hidden bg-[#071635]">
+      <section className="relative overflow-hidden bg-[#14345E]">
         {/* Decorative elements */}
 
         <div
@@ -64,11 +115,12 @@ export default function ContactPage() {
             w-full
             max-w-[1200px]
             px-4
-            pb-8
-            pt-7
+            pt-3
+            pb-6
+            pt-4
             sm:px-6
-            sm:pb-10
-            sm:pt-9
+            sm:pb-9
+            sm:pt-8
             lg:px-8
             lg:pb-11
             lg:pt-10
@@ -93,9 +145,9 @@ export default function ContactPage() {
 
           <h1
             className="
-              mt-4
+              mt-3
               max-w-4xl
-              text-[40px]
+              text-[34px]
               font-extrabold
               leading-[0.96]
               tracking-[-0.055em]
@@ -114,9 +166,9 @@ export default function ContactPage() {
 
           <p
             className="
-              mt-4
+              mt-3
               max-w-2xl
-              text-xs
+              text-[11px]
               leading-5
               text-white/55
               sm:text-sm
@@ -134,18 +186,19 @@ export default function ContactPage() {
           CONTACT AREA
       ====================================================== */}
 
-      <section className="w-full bg-white">
+      <section className="relative z-10 w-full bg-white">
         <div
           className="
             mx-auto
             w-full
             max-w-[1200px]
             px-4
-            py-8
+            py-5
             sm:px-6
-            sm:py-10
+            sm:py-8
             lg:px-8
-            lg:py-12
+            lg:py-10
+            pb-7
           "
         >
           <div
@@ -153,9 +206,9 @@ export default function ContactPage() {
               grid
               grid-cols-1
               items-stretch
-              gap-5
-              lg:grid-cols-2
-              lg:gap-6
+              gap-4
+              md:grid-cols-2
+              lg:gap-5
             "
           >
 
@@ -167,12 +220,14 @@ export default function ContactPage() {
               className="
                 relative
                 flex
+                h-auto
+                min-h-0
                 overflow-hidden
-                rounded-[22px]
-                bg-[#071635]
-                p-5
-                sm:p-7
-                lg:p-8
+                rounded-[18px]
+                bg-[#14345E]
+                p-4
+                sm:p-6
+                lg:p-7
               "
             >
               {/* Decorative circle */}
@@ -240,22 +295,22 @@ export default function ContactPage() {
 
                 {/* Contact cards */}
 
-                <div className="mt-6 space-y-3">
+                <div className="mt-4 space-y-2">
 
                   {/* PHONE */}
 
                   <a
-                    href="tel:+919999999999"
+                    href={phone1 ? `tel:+91${phone1}` : "#"}
                     className="
                       group
                       flex
                       items-center
                       gap-3
-                      rounded-[15px]
+                      rounded-[12px]
                       border
                       border-white/10
                       bg-white/[0.04]
-                      p-3
+                      p-2.5
                       transition-all
                       duration-300
                       hover:bg-white/[0.08]
@@ -264,8 +319,8 @@ export default function ContactPage() {
                     <div
                       className="
                         flex
-                        h-10
-                        w-10
+                        h-9
+                        w-9
                         shrink-0
                         items-center
                         justify-center
@@ -274,7 +329,7 @@ export default function ContactPage() {
                         text-[#071635]
                       "
                     >
-                      <Phone size={16} />
+                      <Phone size={15} />
                     </div>
 
                     <div className="min-w-0">
@@ -298,15 +353,22 @@ export default function ContactPage() {
                           text-white
                         "
                       >
-                        +91 99999 99999
+                        {phone1 ? `+91 ${phone1}` : "Phone unavailable"}
                       </p>
+                      {(phone2 || officePhone) && (
+                        <p className="mt-0.5 text-[10px] font-medium text-white/55">
+                          {phone2 ? `Mob: ${phone2}` : ""}
+                          {phone2 && officePhone ? " • " : ""}
+                          {officePhone ? `Off: ${officePhone}` : ""}
+                        </p>
+                      )}
                     </div>
                   </a>
 
                   {/* WHATSAPP */}
 
                   <a
-                    href="https://wa.me/919999999999"
+                    href={shouldUseWhatsApp ? `https://wa.me/${shouldUseWhatsApp}` : "#"}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="
@@ -314,11 +376,11 @@ export default function ContactPage() {
                       flex
                       items-center
                       gap-3
-                      rounded-[15px]
+                      rounded-[12px]
                       border
                       border-white/10
                       bg-white/[0.04]
-                      p-3
+                      p-2.5
                       transition-all
                       duration-300
                       hover:bg-white/[0.08]
@@ -327,8 +389,8 @@ export default function ContactPage() {
                     <div
                       className="
                         flex
-                        h-10
-                        w-10
+                        h-9
+                        w-9
                         shrink-0
                         items-center
                         justify-center
@@ -337,7 +399,7 @@ export default function ContactPage() {
                         text-[#071635]
                       "
                     >
-                      <MessageCircle size={16} />
+                      <MessageCircle size={15} />
                     </div>
 
                     <div className="min-w-0">
@@ -369,17 +431,17 @@ export default function ContactPage() {
                   {/* EMAIL */}
 
                   <a
-                    href="mailto:info@baiyatravels.com"
+                    href={email ? `mailto:${email}` : "#"}
                     className="
                       group
                       flex
                       items-center
                       gap-3
-                      rounded-[15px]
+                      rounded-[12px]
                       border
                       border-white/10
                       bg-white/[0.04]
-                      p-3
+                      p-2.5
                       transition-all
                       duration-300
                       hover:bg-white/[0.08]
@@ -388,8 +450,8 @@ export default function ContactPage() {
                     <div
                       className="
                         flex
-                        h-10
-                        w-10
+                        h-9
+                        w-9
                         shrink-0
                         items-center
                         justify-center
@@ -398,7 +460,7 @@ export default function ContactPage() {
                         text-[#071635]
                       "
                     >
-                      <Mail size={16} />
+                      <Mail size={15} />
                     </div>
 
                     <div className="min-w-0">
@@ -423,7 +485,7 @@ export default function ContactPage() {
                           text-white
                         "
                       >
-                        info@baiyatravels.com
+                        {email || "Email unavailable"}
                       </p>
                     </div>
                   </a>
@@ -435,7 +497,7 @@ export default function ContactPage() {
                       flex
                       items-center
                       gap-3
-                      rounded-[15px]
+                      rounded-[12px]
                       border
                       border-white/10
                       bg-white/[0.04]
@@ -445,8 +507,8 @@ export default function ContactPage() {
                     <div
                       className="
                         flex
-                        h-10
-                        w-10
+                        h-9
+                        w-9
                         shrink-0
                         items-center
                         justify-center
@@ -455,7 +517,7 @@ export default function ContactPage() {
                         text-[#071635]
                       "
                     >
-                      <MapPin size={16} />
+                      <MapPin size={15} />
                     </div>
 
                     <div className="min-w-0">
@@ -479,8 +541,15 @@ export default function ContactPage() {
                           text-white
                         "
                       >
-                        South India
+                        {[location1, location2, location3, location4]
+                          .filter(Boolean)
+                          .join(" • ") || "Location unavailable"}
                       </p>
+                      {officeAddress && (
+                        <p className="mt-1 max-w-md text-[10px] font-medium leading-4 text-white/50">
+                          {officeAddress}
+                        </p>
+                      )}
                     </div>
                   </div>
 
@@ -490,10 +559,10 @@ export default function ContactPage() {
 
                 <div
                   className="
-                    mt-6
+                    mt-4
                     border-t
                     border-white/10
-                    pt-5
+                    pt-4
                   "
                 >
                   <div className="flex items-center gap-3">
@@ -524,8 +593,13 @@ export default function ContactPage() {
                           text-white/80
                         "
                       >
-                        Monday – Saturday
+                        {workingDays || "Monday - Saturday"}
                       </p>
+                      {workingHours && (
+                        <p className="mt-0.5 text-[10px] font-medium text-white/55">
+                          {workingHours}
+                        </p>
+                      )}
                     </div>
 
                   </div>
@@ -541,13 +615,15 @@ export default function ContactPage() {
             <div
               className="
                 flex
-                rounded-[22px]
+                h-auto
+                min-h-0
+                rounded-[18px]
                 border
                 border-[#071635]/8
                 bg-[#F7F3E8]
-                p-5
-                sm:p-7
-                lg:p-8
+                p-4
+                sm:p-6
+                lg:p-7
               "
             >
               <div className="flex w-full flex-col">
@@ -651,7 +727,7 @@ export default function ContactPage() {
                       className="
                         mt-5
                         rounded-full
-                        bg-[#071635]
+                        bg-[#14345E]
                         px-5
                         py-2.5
                         text-xs
@@ -673,14 +749,14 @@ export default function ContactPage() {
                   <form
                     onSubmit={handleSubmit}
                     className="
-                      mt-6
+                      mt-4
                       flex
                       flex-1
                       flex-col
                     "
                   >
 
-                    <div className="space-y-4">
+                    <div className="space-y-3">
 
                       {/* NAME + PHONE */}
 
@@ -716,7 +792,7 @@ export default function ContactPage() {
                             required
                             placeholder="Enter your name"
                             className="
-                              h-11
+                              h-10
                               w-full
                               rounded-[12px]
                               border
@@ -758,7 +834,7 @@ export default function ContactPage() {
                             required
                             placeholder="Enter phone number"
                             className="
-                              h-11
+                              h-10
                               w-full
                               rounded-[12px]
                               border
@@ -803,7 +879,7 @@ export default function ContactPage() {
                           type="email"
                           placeholder="Enter your email"
                           className="
-                            h-11
+                            h-10
                             w-full
                             rounded-[12px]
                             border
@@ -846,7 +922,7 @@ export default function ContactPage() {
                           required
                           defaultValue=""
                           className="
-                            h-11
+                            h-10
                             w-full
                             rounded-[12px]
                             border
@@ -933,7 +1009,7 @@ export default function ContactPage() {
                             type="text"
                             placeholder="Where are you going?"
                             className="
-                              h-11
+                              h-10
                               w-full
                               rounded-[12px]
                               border
@@ -975,7 +1051,7 @@ export default function ContactPage() {
                             min="1"
                             placeholder="e.g. 10"
                             className="
-                              h-11
+                              h-10
                               w-full
                               rounded-[12px]
                               border
@@ -1018,10 +1094,10 @@ export default function ContactPage() {
                           id="message"
                           name="message"
                           required
-                          rows={4}
+                          rows={3}
                           placeholder="Tell us about your travel plans..."
                           className="
-                            min-h-[100px]
+                            min-h-[88px]
                             w-full
                             resize-none
                             rounded-[12px]
@@ -1051,15 +1127,15 @@ export default function ContactPage() {
                       type="submit"
                       className="
                         group
-                        mt-5
+                        mt-4
                         flex
-                        h-11
+                        h-10
                         w-full
                         items-center
                         justify-center
                         gap-2
                         rounded-full
-                        bg-[#071635]
+                        bg-[#14345E]
                         px-5
                         text-xs
                         font-bold
@@ -1097,18 +1173,19 @@ export default function ContactPage() {
           SMALL BOTTOM SERVICE CARDS
       ====================================================== */}
 
-      <section className="w-full bg-[#F7F3E8]">
+      <section className="relative z-0 w-full bg-[#F7F3E8]">
         <div
           className="
             mx-auto
             w-full
             max-w-[1200px]
             px-4
-            pb-8
+            pt-3
+            pb-6
             sm:px-6
-            sm:pb-10
+            sm:pb-8
             lg:px-8
-            lg:pb-12
+            lg:pb-10
           "
         >
 
@@ -1116,7 +1193,7 @@ export default function ContactPage() {
             className="
               grid
               grid-cols-1
-              gap-3
+              gap-2
               sm:grid-cols-3
             "
           >
@@ -1125,11 +1202,11 @@ export default function ContactPage() {
 
             <div
               className="
-                rounded-[16px]
+                rounded-[14px]
                 border
                 border-[#071635]/8
                 bg-white
-                p-4
+                p-3
               "
             >
               <CheckCircle2
@@ -1164,11 +1241,11 @@ export default function ContactPage() {
 
             <div
               className="
-                rounded-[16px]
+                rounded-[14px]
                 border
                 border-[#071635]/8
                 bg-white
-                p-4
+                p-3
               "
             >
               <CheckCircle2
@@ -1203,11 +1280,11 @@ export default function ContactPage() {
 
             <div
               className="
-                rounded-[16px]
+                rounded-[14px]
                 border
                 border-[#071635]/8
                 bg-white
-                p-4
+                p-3
               "
             >
               <CheckCircle2

@@ -27,7 +27,7 @@ const accommodationItems = [
     title: "Comfortable Rooms",
     description:
       "Arrange comfortable rooms for individuals, families and pilgrimage groups during your journey.",
-    image: "/images/accommodation/rooms.png",
+    image: "/images/accommodation/room.png",
     icon: BedDouble,
     features: [
       "Family & group rooms",
@@ -39,7 +39,7 @@ const accommodationItems = [
     title: "Halls",
     description:
       "Spacious halls for religious programmes, group gatherings, functions and special occasions.",
-    image: "/images/accommodation/hall.jpg",
+    image: "/images/accommodation/hall.png",
     icon: Building2,
     features: [
       "Group gatherings",
@@ -51,7 +51,7 @@ const accommodationItems = [
     title: "Kitchen Arrangements",
     description:
       "Kitchen and food preparation arrangements for groups, events and spiritual programmes.",
-    image: "/images/accommodation/kitchen.jpg",
+    image: "/images/accommodation/kitchen.png",
     icon: ChefHat,
     features: [
       "Group food arrangements",
@@ -1054,55 +1054,63 @@ export default function Accommodation() {
                   </div>
                 </div>
 
-                {/* =================================================
-                    CARD CTA
-                ================================================== */}
-
-                <Link
-                  href="/accommodation"
-                  className="
-                    group/link
-                    relative
-                    z-20
-                    flex
-                    min-h-[40px]
-                    items-center
-                    justify-center
-                    gap-1.5
-                    border-t
-                    border-[#071635]/[0.07]
-                    bg-[#FBF8F1]
-                    px-4
-                    text-[10px]
-                    font-bold
-                    text-[#071635]
-                    opacity-100
-                    transition-all
-                    duration-300
-                    hover:bg-[#FFF9E9]
-                    hover:text-[#D99A18]
-
-                    sm:min-h-[48px]
-                    sm:text-[11px]
-                  "
-                >
-                  <span>
-                    View Arrangements
-                  </span>
-
-                  <ArrowRight
-                    size={12}
-                    strokeWidth={2}
-                    className="
-                      transition-transform
-                      duration-300
-                      group-hover/link:translate-x-1
-                    "
-                  />
-                </Link>
               </motion.article>
             );
           })}
+        </motion.div>
+
+        {/* =====================================================
+            SHARED ACCOMMODATION BUTTON
+        ====================================================== */}
+
+        <motion.div
+          initial={shouldReduceMotion ? false : { opacity: 0, y: 10 }}
+          whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="mt-4 flex justify-center sm:mt-5"
+        >
+          <Link
+            href="/accommodation"
+            className="
+              group
+              inline-flex
+              min-h-[38px]
+              items-center
+              justify-center
+              gap-1.5
+              rounded-full
+              bg-[#0B1F4D]
+              px-5
+              text-[10px]
+              font-bold
+              text-white
+              shadow-[0_6px_16px_rgba(7,22,53,0.16)]
+              transition-all
+              duration-300
+              hover:-translate-y-0.5
+              hover:bg-[#D99A18]
+              hover:shadow-[0_8px_20px_rgba(217,154,24,0.22)]
+
+              sm:min-h-[42px]
+              sm:px-6
+              sm:text-[11px]
+
+              lg:min-h-[44px]
+              lg:px-7
+              lg:text-[12px]
+            "
+          >
+            <span className="whitespace-nowrap text-white">
+              View All Arrangements
+            </span>
+
+            <ArrowRight
+              size={13}
+              strokeWidth={2}
+              className="text-[#D99A18] transition-transform duration-300 group-hover:translate-x-1"
+            />
+          </Link>
         </motion.div>
 
         {/* =====================================================
@@ -1346,7 +1354,7 @@ export default function Accommodation() {
                   justify-center
                   gap-1.5
                   rounded-full
-                  bg-[#0B1F4D]
+                  bg-[#143A5E]
                   px-5
                   text-[10px]
                   font-bold

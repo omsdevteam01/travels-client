@@ -27,7 +27,7 @@ const services = [
     icon: Map,
   },
   {
-    slug: "vehicle-arrangements",
+    slug: "vehicle-booking",
     title: "Vehicle Booking",
     description:
       "Cars, vans and buses for local travel, long trips and group transportation.",
@@ -911,7 +911,7 @@ export default function Services() {
               justify-center
               gap-2.5
               rounded-full
-              bg-[#071635]
+              bg-[#143A5E]
               px-5
               py-2
               text-[10px]

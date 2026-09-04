@@ -221,7 +221,7 @@ export default function Navbar() {
             aria-label="Baiya Tours & Travels - Home"
             className="group flex min-w-0 items-center gap-2.5"
           >
-            <div className="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden sm:h-16 sm:w-16">
+            <div className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden sm:h-[68px] sm:w-[68px]">
               <img
                 src="/images/logo/logo.png"
                 alt="Baiya Tours & Travels"
@@ -253,13 +253,21 @@ export default function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="group relative rounded-full px-3 py-2.5 text-[14px] font-semibold !text-[#071635] transition-colors duration-200 hover:!text-[#D99A18] 2xl:px-3.5 2xl:text-[15px]"
+                  className={`group relative rounded-full px-3 py-2.5 text-[14px] font-semibold transition-all duration-200 2xl:px-3.5 2xl:text-[15px] ${
+                    pathname === item.href
+                      ? "bg-[#D99A18]/12 !text-[#D99A18] shadow-[inset_0_0_0_1px_rgba(217,154,24,0.12)]"
+                      : "!text-[#071635] hover:!text-[#D99A18]"
+                  }`}
                 >
                   {item.label}
 
                   {/* Hover underline */}
 
-                  <span className="absolute bottom-1 left-1/2 h-[2px] w-0 -translate-x-1/2 rounded-full bg-[#D99A18] transition-all duration-300 group-hover:w-4" />
+                  <span
+                    className={`absolute bottom-1 left-1/2 h-[2px] -translate-x-1/2 rounded-full bg-[#D99A18] transition-all duration-300 ${
+                      pathname === item.href ? "w-5" : "w-0 group-hover:w-4"
+                    }`}
+                  />
                 </Link>
               ))}
             </div>
@@ -443,15 +451,27 @@ export default function Navbar() {
                           onClick={
                             closeMobileMenu
                           }
-                          className="group flex min-h-12 items-center justify-between border-b border-[#0B1F4D]/8 py-2.5 text-sm font-semibold !text-[#071635] transition-colors duration-200 hover:!text-[#D99A18] active:!text-[#D99A18] sm:min-h-13 sm:text-[15px]"
+                          className={`group flex min-h-12 items-center justify-between border-b border-[#0B1F4D]/8 py-2.5 pl-3 pr-1 text-sm font-semibold transition-all duration-200 sm:min-h-13 sm:text-[15px] ${
+                            pathname === item.href
+                              ? "rounded-xl bg-[#D99A18]/12 !text-[#D99A18] shadow-[inset_3px_0_0_#D99A18]"
+                              : "!text-[#071635] hover:!text-[#D99A18] active:!text-[#D99A18]"
+                          }`}
                         >
-                          <span className="!text-[#071635] group-hover:!text-[#D99A18]">
+                          <span
+                            className={
+                              pathname === item.href
+                                ? "!text-[#D99A18]"
+                                : "!text-[#071635] group-hover:!text-[#D99A18]"
+                            }
+                          >
                             {item.label}
                           </span>
 
                           <ArrowRight
                             size={16}
-                            className="!text-[#D99A18] transition-transform duration-200 group-hover:translate-x-1"
+                            className={`!text-[#D99A18] transition-transform duration-200 group-hover:translate-x-1 ${
+                            pathname === item.href ? "translate-x-0.5" : ""
+                          }`}
                           />
                         </Link>
                       </motion.div>

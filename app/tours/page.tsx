@@ -161,11 +161,11 @@ export default function ToursPage() {
 
           {/* SECTION TITLE */}
 
-          <div className="flex items-end justify-between gap-4">
+          <div className="relative flex justify-center text-center">
 
-            <div>
+            <div className="flex flex-col items-center">
 
-              <div className="flex items-center gap-2.5">
+              <div className="flex items-center justify-center gap-2.5">
 
                 <Sparkles
                   size={14}
@@ -188,10 +188,11 @@ export default function ToursPage() {
 
               <h2
                 className="
-                  mt-2
+                  mt-1.5
                   text-2xl
                   font-extrabold
                   tracking-[-0.04em]
+                  sm:mt-2
                   sm:text-3xl
                 "
               >
@@ -202,6 +203,9 @@ export default function ToursPage() {
 
             <span
               className="
+                absolute
+                right-0
+                bottom-0
                 hidden
                 text-xs
                 font-semibold
@@ -218,15 +222,15 @@ export default function ToursPage() {
               SEARCH
           ================================================== */}
 
-          <div className="mt-5">
+          <div className="mt-3 flex justify-center sm:mt-4">
 
-            <div className="relative max-w-xl">
+            <div className="relative w-full max-w-md">
 
               <Search
                 size={16}
                 className="
                   absolute
-                  left-4
+                  left-3.5
                   top-1/2
                   -translate-y-1/2
                   text-[#071635]/30
@@ -241,15 +245,15 @@ export default function ToursPage() {
                 }
                 placeholder="Search destination or tour..."
                 className="
-                  h-11
+                  h-10
                   w-full
                   rounded-full
                   border
                   border-[#071635]/10
                   bg-[#F7F3E8]
-                  pl-11
-                  pr-5
-                  text-xs
+                  pl-10
+                  pr-4
+                  text-[11px]
                   font-medium
                   text-[#071635]
                   outline-none
@@ -258,8 +262,8 @@ export default function ToursPage() {
                   focus:border-[#D99A18]/40
                   focus:ring-2
                   focus:ring-[#D99A18]/10
-                  sm:h-12
-                  sm:text-sm
+                  sm:h-10.5
+                  sm:text-xs
                 "
               />
 
@@ -273,18 +277,28 @@ export default function ToursPage() {
 
           <div
             className="
-              mt-4
-              -mx-4
-              overflow-x-auto
-              px-4
-              pb-1
-              scrollbar-hide
-              sm:mx-0
-              sm:px-0
+              mt-3
+              flex
+              w-full
+              justify-center
+              sm:mt-4
             "
           >
 
-            <div className="flex min-w-max gap-2">
+            <div
+              className="
+                grid
+                w-full
+                max-w-[520px]
+                grid-cols-5
+                gap-1.5
+                sm:flex
+                sm:max-w-5xl
+                sm:flex-wrap
+                sm:justify-center
+                sm:gap-2
+              "
+            >
 
               {tourCategories.map((category) => {
                 const isActive =
@@ -298,19 +312,24 @@ export default function ToursPage() {
                       setActiveCategory(category)
                     }
                     className={`
+                      min-w-0
                       rounded-full
-                      px-4
-                      py-2.5
-                      text-[10px]
+                      px-0.5
+                      py-2
+                      text-[7px]
                       font-bold
+                      leading-none
                       whitespace-nowrap
                       transition-all
                       duration-300
+                      active:scale-[0.97]
+                      sm:px-4
+                      sm:py-2.5
                       sm:text-xs
                       ${
                         isActive
-                          ? "bg-[#071635] text-white"
-                          : "bg-[#F7F3E8] text-[#071635]/55 hover:bg-[#071635]/10 hover:text-[#071635]"
+                          ? "bg-[#173A67] text-white"
+                          : "bg-[#F7F3E8] text-[#071635]/55 hover:bg-[#173A67]/10 hover:text-[#071635]"
                       }
                     `}
                   >
@@ -333,7 +352,7 @@ export default function ToursPage() {
               className="
                 text-[10px]
                 font-semibold
-                text-[#071635]/35
+                text-[#D99A18]
               "
             >
               {filteredTours.length}{" "}
@@ -368,10 +387,13 @@ export default function ToursPage() {
             <motion.div
               layout
               className="
-                mt-5
+                mt-4
                 grid
-                gap-x-5
-                gap-y-8
+                gap-x-4
+                gap-y-6
+                sm:mt-5
+                sm:gap-x-5
+                sm:gap-y-8
                 sm:grid-cols-2
                 lg:grid-cols-3
               "
@@ -411,7 +433,7 @@ export default function ToursPage() {
 
                     <div
                       className="
-                        h-[205px]
+                        h-[175px]
                         overflow-hidden
                         sm:h-[225px]
                       "
@@ -440,8 +462,8 @@ export default function ToursPage() {
                         absolute
                         inset-0
                         bg-gradient-to-t
-                        from-[#071635]/80
-                        via-[#071635]/10
+                        from-[#173A67]/80
+                        via-[#173A67]/10
                         to-transparent
                       "
                     />
@@ -473,9 +495,12 @@ export default function ToursPage() {
                     <div
                       className="
                         absolute
-                        bottom-4
-                        left-4
-                        right-4
+                        bottom-3
+                        left-3
+                        right-3
+                        sm:bottom-4
+                        sm:left-4
+                        sm:right-4
                       "
                     >
 
@@ -522,7 +547,7 @@ export default function ToursPage() {
                         flex
                         items-center
                         gap-2
-                        text-[#071635]/35
+                        text-[#D99A18]
                       "
                     >
 
@@ -543,11 +568,11 @@ export default function ToursPage() {
 
                     <p
                       className="
-                        mt-2
+                        mt-1.5
                         line-clamp-2
                         text-xs
-                        leading-5
-                        text-[#071635]/50
+                        leading-[1.15rem]
+                        text-[#071635]/75
                       "
                     >
                       {tour.shortDescription}
@@ -557,7 +582,7 @@ export default function ToursPage() {
                       href={`/tours/${tour.slug}`}
                       className="
                         group/link
-                        mt-3
+                        mt-2.5
                         inline-flex
                         items-center
                         gap-2
@@ -642,7 +667,7 @@ export default function ToursPage() {
                 className="
                   mt-5
                   rounded-full
-                  bg-[#071635]
+                  bg-[#173A67]
                   px-5
                   py-2.5
                   text-xs
@@ -672,7 +697,7 @@ export default function ToursPage() {
             mx-auto
             max-w-[1200px]
             px-4
-            py-9
+            py-6
             sm:px-6
             sm:py-12
             lg:px-8
@@ -684,10 +709,11 @@ export default function ToursPage() {
             className="
               relative
               overflow-hidden
-              rounded-[25px]
-              bg-[#071635]
-              px-6
-              py-8
+              rounded-[20px]
+              bg-[#173A67]
+              px-5
+              py-6
+              sm:rounded-[25px]
               sm:px-9
               sm:py-10
               lg:px-12
@@ -731,11 +757,12 @@ export default function ToursPage() {
 
               <span
                 className="
-                  text-[9px]
+                  text-[8px]
                   font-bold
                   uppercase
                   tracking-[0.2em]
                   text-[#F0C45C]
+                  sm:text-[9px]
                 "
               >
                 Custom Journey
@@ -743,12 +770,13 @@ export default function ToursPage() {
 
               <h2
                 className="
-                  mt-2
-                  text-2xl
+                  mt-1.5
+                  text-xl
                   font-extrabold
-                  leading-tight
+                  leading-[1.05]
                   tracking-[-0.035em]
                   text-white
+                  sm:mt-2
                   sm:text-3xl
                   lg:text-4xl
                 "
@@ -758,11 +786,14 @@ export default function ToursPage() {
 
               <p
                 className="
-                  mt-3
+                  mt-2
                   max-w-xl
-                  text-sm
-                  leading-6
-                  text-white/45
+                  text-[11px]
+                  leading-5
+                  text-white/55
+                  sm:mt-3
+                  sm:text-sm
+                  sm:leading-6
                 "
               >
                 Tell us where you would like to go and what
@@ -774,15 +805,20 @@ export default function ToursPage() {
                 href="/contact"
                 className="
                   group
-                  mt-5
+                  mt-4
                   inline-flex
                   items-center
-                  gap-2
+                  gap-1.5
                   rounded-full
                   bg-[#D99A18]
-                  px-6
-                  py-3
-                  text-xs
+                  px-4
+                  py-2.5
+                  text-[10px]
+                  sm:mt-5
+                  sm:gap-2
+                  sm:px-6
+                  sm:py-3
+                  sm:text-xs
                   font-bold
                   text-white
                   transition-all
@@ -818,9 +854,9 @@ export default function ToursPage() {
       <div
         className="
           fixed
-          bottom-4
-          left-4
-          right-4
+          bottom-3
+          left-3
+          right-3
           z-40
           sm:hidden
         "
@@ -830,16 +866,16 @@ export default function ToursPage() {
           href="/contact"
           className="
             flex
-            min-h-12
+            min-h-11
             w-full
             items-center
             justify-center
             gap-2
             rounded-full
-            bg-[#071635]
-            px-6
-            py-3
-            text-sm
+            bg-[#173A67]
+            px-5
+            py-2.5
+            text-xs
             font-bold
             text-white
             shadow-2xl

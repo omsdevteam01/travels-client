@@ -22,42 +22,42 @@ type GalleryItem = {
 
 const galleryItems: GalleryItem[] = [
   {
-    src: "/images/gallery/vehicle-1.jpg",
+    src: "/images/gallery/bus.png",
     title: "Premium Travel",
     size: "normal",
   },
   {
-    src: "/images/gallery/vehicle-2.jpg",
+    src: "/images/gallery/comfort.png",
     title: "Comfortable Journey",
     size: "normal",
   },
   {
-    src: "/images/gallery/vehicle-3.jpg",
+    src: "/images/gallery/travel.png",
     title: "Group Travel",
     size: "normal",
   },
   {
-    src: "/images/gallery/vehicle-4.jpg",
+    src: "/images/gallery/space.png",
     title: "Spacious Seating",
     size: "normal",
   },
   {
-    src: "/images/gallery/tour-1.jpg",
+    src: "/images/gallery/munnar.png",
     title: "South India Tours",
     size: "normal",
   },
   {
-    src: "/images/gallery/tour-2.jpg",
+    src: "/images/gallery/madurai.png",
     title: "Pilgrimage Journey",
     size: "normal",
   },
   {
-    src: "/images/gallery/room-1.jpg",
+    src: "/images/gallery/room.png",
     title: "Comfortable Stay",
     size: "normal",
   },
   {
-    src: "/images/gallery/hall-1.jpg",
+    src: "/images/gallery/hall.png",
     title: "Event Hall",
     size: "normal",
   },
@@ -619,45 +619,6 @@ export default function Gallery() {
                       South India Travel
                     </p>
                   </div>
-
-                  {/* Arrow */}
-
-                  <motion.span
-                    whileHover={
-                      shouldReduceMotion
-                        ? undefined
-                        : {
-                            scale: 1.08,
-                          }
-                    }
-                    className="
-                      flex
-                      h-[22px]
-                      w-[22px]
-                      shrink-0
-                      items-center
-                      justify-center
-                      rounded-full
-                      bg-white/10
-                      text-white
-                      backdrop-blur-md
-                      transition-all
-                      duration-300
-
-                      group-hover:bg-[#D99A18]
-
-                      sm:h-7
-                      sm:w-7
-
-                      lg:h-8
-                      lg:w-8
-                    "
-                  >
-                    <ChevronRight
-                      size={13}
-                      strokeWidth={2}
-                    />
-                  </motion.span>
                 </div>
               </div>
             </motion.div>
@@ -692,7 +653,7 @@ export default function Gallery() {
             gap-3
             overflow-hidden
             rounded-[16px]
-            bg-[#0B1F4D]
+            bg-[#143A5E]
             px-3.5
             py-3.5
             shadow-[0_10px_30px_rgba(7,22,53,0.10)]
