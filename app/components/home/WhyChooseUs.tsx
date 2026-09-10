@@ -36,7 +36,7 @@ const reasons = [
   },
   {
     icon: Users,
-    title: "Group Travel Support",
+    title: "24/7 Travel Support",
     description:
       "Practical arrangements for families, friends, pilgrimage groups and larger travelling groups.",
   },
@@ -861,7 +861,7 @@ export default function WhyChooseUs() {
                       sm:text-[9px]
                     "
                   >
-                    Complete Travel Support
+                    24/7 Travel Support
                   </span>
                 </motion.div>
 

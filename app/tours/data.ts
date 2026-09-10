@@ -46,8 +46,8 @@ export const tours: Tour[] = [
   },
 
   {
-    name: "Munnar & Thekkady Tour",
-    slug: "munnar-thekkady-tour",
+    name: "Munnar",
+    slug: "munnar-tour",
     shortDescription:
       "Enjoy the misty hills of Munnar and the natural beauty of Thekkady.",
     description:
@@ -58,10 +58,11 @@ export const tours: Tour[] = [
     category: "Hill Station",
     highlights: [
       "Munnar sightseeing",
+      "Jeep Safari",
       "Tea plantations",
-      "Thekkady visit",
       "Family travel",
       "Accommodation support",
+      "Sunrise & Sunset",
     ],
   },
 
@@ -444,6 +445,164 @@ export const tours: Tour[] = [
       "Custom itinerary",
     ],
   },
+
+  {
+    name: "Tirupati Temple Tour",
+    slug: "tirupati-temple-tour",
+    shortDescription: "A spiritual journey to Tirupati and its important pilgrimage attractions.",
+    description: "Visit Tirupati with organised transportation and pilgrimage travel support.",
+    image: mediaUrl("images/tours/tirupati.png"),
+    location: "Tirupati",
+    duration: "Custom",
+    category: "Pilgrimage",
+    highlights: ["Tirupati Temple", "Temple visits", "Pilgrimage travel", "Vehicle arrangements", "Travel support"],
+  },
+
+  
+
+  {
+    name: "Kanchipuram Temple Tour",
+    slug: "kanchipuram-temple-tour",
+    shortDescription: "Discover the temples and spiritual heritage of Kanchipuram.",
+    description: "Explore Kanchipuram through its important temples and cultural attractions with organised travel support.",
+    image: mediaUrl("images/tours/kanchipuram.jpg"),
+    location: "Kanchipuram",
+    duration: "Custom",
+    category: "Pilgrimage",
+    highlights: ["Kanchipuram temples", "Temple sightseeing", "Spiritual journey", "Heritage attractions", "Travel support"],
+  },
+
+  {
+    name: "Chidambaram Temple Tour",
+    slug: "chidambaram-temple-tour",
+    shortDescription: "Experience the spiritual and cultural heritage of Chidambaram.",
+    description: "Visit Chidambaram and its important temple attractions with comfortable transportation and pilgrimage arrangements.",
+    image: mediaUrl("images/tours/chidambaram.png"),
+    location: "Chidambaram",
+    duration: "Custom",
+    category: "Pilgrimage",
+    highlights: ["Chidambaram Temple", "Temple visits", "Pilgrimage travel", "Cultural attractions", "Vehicle arrangements"],
+  },
+
+  {
+    name: "Pondicherry Tour",
+    slug: "pondicherry-tour",
+    shortDescription: "Enjoy the coastal charm, culture and attractions of Pondicherry.",
+    description: "Explore Pondicherry with comfortable transportation and organised sightseeing arrangements.",
+    image: mediaUrl("images/tours/pondicherry.png"),
+    location: "Pondicherry",
+    duration: "Custom",
+    category: "Beach",
+    highlights: ["Pondicherry sightseeing", "Coastal attractions", "Cultural experiences", "Local travel", "Flexible planning"],
+  },
+
+  {
+    name: "Thiruchendur Temple Tour",
+    slug: "thiruchendur-temple-tour",
+    shortDescription: "A spiritual journey to Thiruchendur and its famous temple destination.",
+    description: "Travel to Thiruchendur for a comfortable pilgrimage experience with organised transportation and sightseeing support.",
+    image: mediaUrl("images/tours/thiruchendur.png"),
+    location: "Thiruchendur",
+    duration: "Custom",
+    category: "Pilgrimage",
+    highlights: ["Thiruchendur Temple", "Temple visits", "Pilgrimage travel", "Coastal destination", "Vehicle arrangements"],
+  },
+
+  {
+    name: "Tiruvannamalai Temple Tour",
+    slug: "tiruvannamalai-temple-tour",
+    shortDescription: "Explore the spiritual atmosphere and temple heritage of Tiruvannamalai.",
+    description: "Enjoy a pilgrimage journey to Tiruvannamalai with organised transportation and temple sightseeing support.",
+    image: mediaUrl("images/tours/tiruvannamalai.png"),
+    location: "Tiruvannamalai",
+    duration: "Custom",
+    category: "Pilgrimage",
+    highlights: ["Tiruvannamalai Temple", "Temple visits", "Pilgrimage travel", "Spiritual attractions", "Travel support"],
+  },
+
+  {
+    name: "Srirangam Temple Tour",
+    slug: "srirangam-temple-tour",
+    shortDescription: "Discover the spiritual and architectural heritage of Srirangam.",
+    description: "Visit Srirangam with comfortable transportation and organised pilgrimage travel arrangements.",
+    image: mediaUrl("images/tours/srirangam.png"),
+    location: "Srirangam",
+    duration: "Custom",
+    category: "Pilgrimage",
+    highlights: ["Srirangam Temple", "Temple sightseeing", "Pilgrimage journey", "Heritage attractions", "Vehicle arrangements"],
+  },
+
+  {
+    name: "Thiruvananthapuram Temple Tour",
+    slug: "thiruvananthapuram-temple-tour",
+    shortDescription: "Experience the spiritual heritage and attractions of Thiruvananthapuram.",
+    description: "Explore Thiruvananthapuram with temple visits, sightseeing and comfortable travel arrangements.",
+    image: mediaUrl("images/tours/thiruvananthapuram.png"),
+    location: "Thiruvananthapuram",
+    duration: "Custom",
+    category: "Pilgrimage",
+    highlights: ["Thiruvananthapuram Temple", "Temple visits", "Pilgrimage travel", "City sightseeing", "Travel support"],
+  },
+
+  {
+    name: "Ram Setu Point Tour",
+    slug: "ram-setu-point-tour",
+    shortDescription: "Visit the scenic and spiritual Ram Setu Point near Dhanushkodi.",
+    description: "Experience a memorable journey to Ram Setu Point with organised transportation and sightseeing support.",
+    image: mediaUrl("images/tours/ram-setu.png"),
+    location: "Ram Setu Point",
+    duration: "Custom",
+    category: "Pilgrimage",
+    highlights: ["Ram Setu Point", "Spiritual attractions", "Coastal sightseeing", "Scenic journey", "Vehicle arrangements"],
+  },
+
+  {
+    name: "Dhanushkodi Tour",
+    slug: "dhanushkodi-tour",
+    shortDescription: "Explore the unique coastal landscape and attractions of Dhanushkodi.",
+    description: "Enjoy a comfortable journey to Dhanushkodi with organised transportation and coastal sightseeing support.",
+    image: mediaUrl("images/tours/dhanushkodi.png"),
+    location: "Dhanushkodi",
+    duration: "Custom",
+    category: "Beach",
+    highlights: ["Dhanushkodi sightseeing", "Coastal attractions", "Scenic travel", "Spiritual destinations", "Vehicle support"],
+  },
+
+  
+
+  {
+    name: "Adiyogi Tour",
+    slug: "adiyogi-tour",
+    shortDescription: "Experience the spiritual atmosphere and iconic Adiyogi destination.",
+    description: "Enjoy a spiritual journey to Adiyogi with organised transportation and sightseeing arrangements.",
+    image: mediaUrl("images/tours/adiyogi.png"),
+    location: "Adiyogi",
+    duration: "Custom",
+    category: "Pilgrimage",
+    highlights: ["Adiyogi", "Spiritual attractions", "Cultural visits", "Scenic travel", "Vehicle arrangements"],
+  },
+
+
+  {
+    name: "Thekkady Tour",
+    slug: "thekkady-tour",
+    shortDescription:
+      "Explore the natural beauty, wildlife and peaceful surroundings of Thekkady.",
+    description:
+      "Experience Thekkady with scenic landscapes, wildlife attractions and comfortable travel arrangements.",
+    image: mediaUrl("images/tours/thekkady.jpg"),
+    location: "Thekkady",
+    duration: "2 Days / 1 Night",
+    category: "Wildlife",
+    highlights: [
+      "Thekkady sightseeing",
+      "Wildlife experience",
+      "Scenic destinations",
+      "Nature travel",
+      "Accommodation support",
+    ],
+  },
+
 ];
 
 export function getTourBySlug(slug: string) {

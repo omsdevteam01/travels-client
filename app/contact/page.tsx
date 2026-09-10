@@ -14,6 +14,7 @@ import {
 export default function ContactPage() {
   const phone1 = process.env.NEXT_PUBLIC_PHONE_1 ?? "";
   const phone2 = process.env.NEXT_PUBLIC_PHONE_2 ?? "";
+  const phone3 = process.env.NEXT_PUBLIC_PHONE_3 ?? "";
   const officePhone = process.env.NEXT_PUBLIC_OFFICE_PHONE ?? "";
   const email = process.env.NEXT_PUBLIC_EMAIL ?? "";
   const location1 = process.env.NEXT_PUBLIC_LOCATION_1 ?? "";
@@ -305,12 +306,14 @@ export default function ContactPage() {
                       group
                       flex
                       items-center
-                      gap-3
+                      gap-2.5
                       rounded-[12px]
                       border
                       border-white/10
                       bg-white/[0.04]
-                      p-2.5
+                      p-2
+                      sm:gap-3
+                      sm:p-2.5
                       transition-all
                       duration-300
                       hover:bg-white/[0.08]
@@ -339,29 +342,113 @@ export default function ContactPage() {
                           font-bold
                           uppercase
                           tracking-widest
-                          text-white/35
+                          text-[#F0C45C]
                         "
                       >
                         Call us
                       </p>
 
-                      <p
-                        className="
-                          mt-0.5
-                          text-sm
-                          font-bold
-                          text-white
-                        "
-                      >
-                        {phone1 ? `+91 ${phone1}` : "Phone unavailable"}
-                      </p>
-                      {(phone2 || officePhone) && (
-                        <p className="mt-0.5 text-[10px] font-medium text-white/55">
-                          {phone2 ? `Mob: ${phone2}` : ""}
-                          {phone2 && officePhone ? " • " : ""}
-                          {officePhone ? `Off: ${officePhone}` : ""}
+                      {/* Phone numbers — 2 per row */}
+                      <div className="mt-0.5 space-y-0.5">
+                        {(phone1 || phone2) && (
+                          <div className="flex flex-wrap items-center gap-x-1.5 gap-y-0.5">
+                            {phone1 && (
+                              <p
+                                className="
+                                  whitespace-nowrap
+                                  text-sm
+                                  font-extrabold
+                                  tracking-wide
+                                  text-white
+                                  sm:text-sm
+                                "
+                              >
+                                +91 {phone1}
+                              </p>
+                            )}
+
+                            {phone1 && phone2 && (
+                              <span className="text-white/40">•</span>
+                            )}
+
+                            {phone2 && (
+                              <p
+                                className="
+                                  whitespace-nowrap
+                                  text-sm
+                                  font-extrabold
+                                  tracking-wide
+                                  text-white
+                                  sm:text-sm
+                                "
+                              >
+                                +91 {phone2}
+                              </p>
+                            )}
+                          </div>
+                        )}
+
+                        {(phone3 || officePhone) && (
+                          <div className="flex flex-wrap items-center gap-x-1.5 gap-y-0.5">
+                            {phone3 && (
+                              <p
+                                className="
+                                  whitespace-nowrap
+                                  text-sm
+                                  font-extrabold
+                                  tracking-wide
+                                  text-white
+                                  sm:text-sm
+                                "
+                              >
+                                +91 {phone3}
+                              </p>
+                            )}
+
+                            {phone3 && officePhone && (
+                              <span className="text-white/40">•</span>
+                            )}
+
+                            {officePhone && (
+                              <p
+                                className="
+                                  whitespace-nowrap
+                                  text-sm
+                                  font-extrabold
+                                  tracking-wide
+                                  text-white
+                                  sm:text-sm
+                                "
+                              >
+                                Office: {officePhone}
+                              </p>
+                            )}
+                          </div>
+                        )}
+
+                        {/* 24/7 Support */}
+                        <p
+                          className="
+                            mt-1
+                            inline-flex
+                            items-center
+                            rounded-full
+                            border
+                            border-[#D99A18]/30
+                            bg-[#D99A18]/10
+                            px-2
+                            py-0.5
+                            text-[8px]
+                            font-extrabold
+                            uppercase
+                            tracking-wider
+                            text-[#F0C45C]
+                            sm:text-[10px]
+                          "
+                        >
+                          24/7 Support
                         </p>
-                      )}
+                      </div>
                     </div>
                   </a>
 
@@ -409,7 +496,7 @@ export default function ContactPage() {
                           font-bold
                           uppercase
                           tracking-widest
-                          text-white/35
+                          text-[#F0C45C]
                         "
                       >
                         WhatsApp
@@ -470,7 +557,7 @@ export default function ContactPage() {
                           font-bold
                           uppercase
                           tracking-widest
-                          text-white/35
+                          text-[#F0C45C]
                         "
                       >
                         Email
@@ -527,7 +614,7 @@ export default function ContactPage() {
                           font-bold
                           uppercase
                           tracking-widest
-                          text-white/35
+                          text-[#F0C45C]
                         "
                       >
                         Location
@@ -579,7 +666,7 @@ export default function ContactPage() {
                           font-bold
                           uppercase
                           tracking-widest
-                          text-white/35
+                          text-[#F0C45C]
                         "
                       >
                         Working hours
@@ -595,11 +682,25 @@ export default function ContactPage() {
                       >
                         {workingDays || "Monday - Saturday"}
                       </p>
+
                       {workingHours && (
                         <p className="mt-0.5 text-[10px] font-medium text-white/55">
                           {workingHours}
                         </p>
                       )}
+
+                      <p
+                        className="
+                          mt-1
+                          text-[10px]
+                          font-extrabold
+                          uppercase
+                          tracking-wider
+                          text-[#F0C45C]
+                        "
+                      >
+                        24/7 Travel Support
+                      </p>
                     </div>
 
                   </div>

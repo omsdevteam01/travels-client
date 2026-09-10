@@ -58,6 +58,7 @@ const benefits = [
 
 const phone1 = process.env.NEXT_PUBLIC_PHONE_1 || "";
 const phone2 = process.env.NEXT_PUBLIC_PHONE_2 || "";
+const phone3 = process.env.NEXT_PUBLIC_PHONE_3 || "";
 const officePhone = process.env.NEXT_PUBLIC_OFFICE_PHONE || "";
 
 const locations = [
@@ -1352,14 +1353,14 @@ export default function BookingCTA() {
                 <p
                   className="
                     mt-2
-                    text-[8px]
-                    font-medium
+                    text-[13px]
+                    font-bold
                     leading-4
-                    text-white/55
-                    sm:text-[9px]
+                    text-white/100
+                    sm:text-[13px]
                   "
                 >
-                  {phone2} • Office: {officePhone}
+                  Mobile: {phone3} • Mobile: {phone2} • Office: {officePhone}
                 </p>
               </div>
             </motion.div>

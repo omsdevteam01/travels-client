@@ -148,6 +148,7 @@ export default function Footer() {
 
   const phone1 = process.env.NEXT_PUBLIC_PHONE_1 ?? "";
   const phone2 = process.env.NEXT_PUBLIC_PHONE_2 ?? "";
+  const phone3 = process.env.NEXT_PUBLIC_PHONE_3 ?? "";
   const officePhone = process.env.NEXT_PUBLIC_OFFICE_PHONE ?? "";
 
   const developerUrl =
@@ -761,14 +762,21 @@ export default function Footer() {
                         mt-0.5
                         text-[9px]
                         font-medium
-                        text-white/45
+                        text-white/70
                         sm:text-[10px]
                         lg:text-[11px]
                       "
                     >
-                      {phone2 && `Mob: ${phone2}`}
-                      {phone2 && officePhone && " • "}
-                      {officePhone && `Off: ${officePhone}`}
+                      {phone2 && `Mobile: ${phone2}`}
+                      {phone2 && phone3 && " • "}
+                      {phone3 && `Mobile: ${phone3}`}
+
+                      {officePhone && (
+                        <>
+                          <br />
+                          {`Office: ${officePhone}`}
+                        </>
+                      )}
                     </p>
                   )}
                 </div>
@@ -894,7 +902,7 @@ export default function Footer() {
                         mt-0.5
                         text-[8.5px]
                         leading-4
-                        text-white/40
+                        text-white/60
                         sm:text-[9px]
                         sm:leading-5
                       "
